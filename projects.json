@@ -1,0 +1,232 @@
+{
+  "projects": [
+    {
+      "id": "caltech_rl_planner",
+      "title": "Reinforcement‑Learning Local Planner",
+      "icon": "🧠",
+      "company": "Caltech CAST",
+      "year": "2024",
+      "description": "Master’s‑thesis work implementing a reinforcement‑learning local planner for the M4 multimodal rover, delivering energy‑aware autonomous navigation over rough terrain.",
+      "tags": [
+        "Reinforcement Learning",
+        "ROS 2",
+        "Gazebo",
+        "PyTorch",
+        "SLAM"
+      ],
+      "detailTitle": "Master’s Thesis – RL Navigation for M4",
+      "detailMeta": "Visiting Student Researcher | 03.2024 – 09.2024",
+      "overview": "Deployed PPO‑based joint‑state control on a 12‑DOF robot, integrating sensor fusion and adaptive gait selection that reduced cost of transport by 23 % versus baseline.",
+      "subprojects": [
+        {
+          "title": "Training Pipeline",
+          "description": "Built simulation‑to‑real transfer workflow with domain randomisation and curriculum learning.",
+          "tags": [
+            "PyTorch",
+            "Domain Randomisation",
+            "PPO"
+          ]
+        },
+        {
+          "title": "Navigation Stack Integration",
+          "description": "Integrated RL controller into ROS 2 Nav2 framework with behaviour‑tree mission logic.",
+          "tags": [
+            "ROS 2 Nav2",
+            "Behaviour Trees"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caltech_m4_electronics",
+      "title": "M4 Drone Electronics & Autonomy",
+      "icon": "🤖",
+      "company": "Caltech CAST",
+      "year": "2025",
+      "description": "Research‑engineer role developing avionics, perception and autonomy for a heavy‑payload multimodal drone.",
+      "tags": [
+        "Embedded Systems",
+        "C++",
+        "Power Electronics",
+        "SLAM",
+        "ROS 2"
+      ],
+      "detailTitle": "AI & Robotics Research Engineer – M4",
+      "detailMeta": "01.2025 – 07.2025",
+      "overview": "Designed a mixed‑criticality onboard network, upgraded actuation hardware for a 40 kg platform, and led SLAM research for joint state estimation.",
+      "subprojects": [
+        {
+          "title": "Avionics Network",
+          "description": "Architected CAN FD + Ethernet TSN bus with STM32 co‑processors and NVIDIA Jetson edge compute.",
+          "tags": [
+            "CAN FD",
+            "Ethernet TSN",
+            "STM32",
+            "Jetson"
+          ]
+        },
+        {
+          "title": "SLAM & Perception",
+          "description": "Benchmarked VIO, LiDAR‑SLAM and visual‑place recognition pipelines for onboard compute.",
+          "tags": [
+            "LiDAR‑SLAM",
+            "VIO",
+            "OpenCV"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anymal_universal_tester",
+      "title": "ANYmal Universal Tester PCB",
+      "icon": "🛠️",
+      "company": "ANYbotics",
+      "year": "2023‑2024",
+      "description": "Development of a plug‑and‑play tester PCB automating quality‑control procedures for ANYmal sub‑assemblies.",
+      "tags": [
+        "PCB Design",
+        "Python Automation",
+        "Quality Control"
+      ],
+      "detailTitle": "Electrical Engineer Intern – Universal Tester",
+      "detailMeta": "09.2023 – 02.2024",
+      "overview": "Consolidated legacy testers into a modular six‑layer board with wireless pogo‑pin fixtures, shortening set‑up time by 60 %.",
+      "subprojects": [
+        {
+          "title": "Tester PCB Design",
+          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "tags": [
+            "KiCad",
+            "ADC",
+            "Isolation",
+            "DFM"
+          ]
+        },
+        {
+          "title": "Wireless Interface Module",
+          "description": "Introduced spring‑loaded pogo‑pin harnesses and alignment jigs to enable contactless coupling with DUTs of varying form factors.",
+          "tags": [
+            "Pogo Pins",
+            "3D Printing",
+            "Fixture Design"
+          ]
+        },
+        {
+          "title": "Test‑Protocol Automation",
+          "description": "Generated YAML‑based test templates and Python scripts for repeatable, version‑controlled execution and logging.",
+          "tags": [
+            "PySerial",
+            "PyTest",
+            "CI/CD"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xplore_systems",
+      "title": "Rover Systems Engineering",
+      "icon": "🛰️",
+      "company": "EPFL Xplore",
+      "year": "2020",
+      "description": "Defined system decomposition, interfaces and test plan for the first Xplore Mars‑analogue rover.",
+      "tags": [
+        "Systems Engineering",
+        "Requirements",
+        "Testing Plan"
+      ],
+      "detailTitle": "Systems Engineer",
+      "detailMeta": "01.2020 – 09.2020",
+      "overview": "Led definition of technical requirements and manufacturing roadmap.",
+      "subprojects": []
+    },
+    {
+      "id": "xplore_tech_mgmt",
+      "title": "Technical Management & Project Planning",
+      "icon": "🗂️",
+      "company": "EPFL Xplore",
+      "year": "2021",
+      "description": "Vice President & Project Manager overseeing 50 + engineers, milestones and risk management.",
+      "tags": [
+        "Project Management",
+        "Risk Analysis",
+        "Budgeting"
+      ],
+      "detailTitle": "Vice President & PM",
+      "detailMeta": "09.2020 – 09.2021",
+      "overview": "Organised concurrent‑engineering reviews with NASA/ESA experts and secured early ERC podium finish.",
+      "subprojects": []
+    },
+    {
+      "id": "xplore_leadership",
+      "title": "Strategic Leadership & Partnerships",
+      "icon": "📈",
+      "company": "EPFL Xplore",
+      "year": "2022",
+      "description": "Presidency focused on external relations, funding (CHF 150 k) and long‑term strategy for an 80‑member organisation.",
+      "tags": [
+        "Leadership",
+        "Stakeholder Engagement",
+        "Fund‑Raising"
+      ],
+      "detailTitle": "President",
+      "detailMeta": "09.2021 – 09.2022",
+      "overview": "Achieved ERC 2022 1st Prize in Navigation and expanded industrial sponsorship portfolio.",
+      "subprojects": []
+    },
+    {
+      "id": "xplore_drone_avionics",
+      "title": "Drone Flight Controller & Avionics",
+      "icon": "🚁",
+      "company": "EPFL Xplore",
+      "year": "2023",
+      "description": "Designed and piloted the first Xplore UAV flight‑controller and sensor board for ERC 2023 drone operations.",
+      "tags": [
+        "Avionics",
+        "Embedded C",
+        "Telemetry",
+        "Safety Protocols"
+      ],
+      "detailTitle": "UAV Avionics Engineer",
+      "detailMeta": "09.2022 – 09.2023",
+      "overview": "Implemented sensor fusion, motor control and safety FSM; operated the drone during ERC 2023 competition.",
+      "subprojects": []
+    },
+    {
+      "id": "rocket_team_avionics",
+      "title": "Hybrid‑Rocket Avionics System",
+      "icon": "🚀",
+      "company": "EPFL Rocket Team",
+      "year": "2019‑2021",
+      "description": "Real‑time data acquisition, telemetry and flight‑state sequencing for the Euroc‑winning hybrid rocket ‘Eiger’.",
+      "tags": [
+        "Avionics",
+        "Telemetry",
+        "Finite‑State Machine",
+        "Embedded C"
+      ],
+      "detailTitle": "Avionics Software Engineer",
+      "detailMeta": "04.2019 – 09.2021",
+      "overview": "Delivered UHF telemetry link and FSM triggering ignition, stage separation and recovery events, contributing to Euroc 2021 victory.",
+      "subprojects": [
+        {
+          "title": "Telemetry Link",
+          "description": "Designed a bidirectional UHF link with CRC‑secured packets and a ground‑station GUI for live flight monitoring.",
+          "tags": [
+            "UHF",
+            "CRC",
+            "Qt"
+          ]
+        },
+        {
+          "title": "Finite‑State Machine",
+          "description": "C‑based FSM triggering ignition, stage separation and recovery events from sensor thresholds.",
+          "tags": [
+            "State Machine",
+            "Embedded C",
+            "Safety"
+          ]
+        }
+      ]
+    }
+  ]
+}

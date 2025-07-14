@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quentin Delfosse - Engineering Portfolio</title>
+    <title>Alex Chen - Robotics Engineer</title>
     <style>
         * {
             margin: 0;
@@ -13,40 +13,37 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a1a;
-            color: #e0e0e0;
-            overflow-x: hidden;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(10px);
+        /* Navigation */
+        .navbar {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
-        nav {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #4a90e2;
+            color: #667eea;
         }
 
         .nav-links {
@@ -56,571 +53,847 @@
         }
 
         .nav-links a {
-            color: #e0e0e0;
             text-decoration: none;
+            color: #333;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #4a90e2;
+            color: #667eea;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
+            padding: 4rem 0;
             color: white;
-            position: relative;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="1" fill="%23888888" opacity="0.3"/><circle cx="800" cy="300" r="1" fill="%23888888" opacity="0.4"/><circle cx="400" cy="600" r="1" fill="%23888888" opacity="0.3"/><circle cx="600" cy="800" r="1" fill="%23888888" opacity="0.2"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
+            /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
         }
 
-        .hero-content p {
+        .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            color: #b0b0b0;
+            opacity: 0.9;
         }
 
         .cta-button {
             display: inline-block;
-            background: rgba(74, 144, 226, 0.2);
-            color: #4a90e2;
-            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 30px;
             text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid #4a90e2;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .cta-button:hover {
-            background: rgba(74, 144, 226, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Projects Section */
-        .projects {
-            padding: 100px 0;
-            background: #222222;
-            position: relative;
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            margin: 2rem 0;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .section-title {
-            text-align: center;
             font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #666;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .view-details {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .view-details:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Project Detail Full Page */
+        .project-detail-page {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            overflow-y: auto;
+        }
+
+        .project-detail-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .project-detail-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-button {
+            background: white;
+            border: none;
+            color: #667eea;
+            padding: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-detail-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .project-detail-meta {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .project-detail-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .project-overview-section {
+            text-align: center;
             margin-bottom: 4rem;
+            padding: 0 2rem;
+        }
+
+        .project-overview-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: #e0e0e0;
         }
 
-        .project {
-            display: flex;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            padding: 4rem 0;
+        .project-overview-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .project:nth-child(even) {
+        /* Alternating Subproject Layout */
+        .subproject-section {
+            display: flex;
+            align-items: center;
+            min-height: 60vh;
+            padding: 4rem 0;
+            gap: 4rem;
+        }
+
+        .subproject-section:nth-child(even) {
             flex-direction: row-reverse;
         }
 
-        .project-visual {
+        .subproject-visual {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 500px;
             position: relative;
         }
 
-        .board-3d {
-            width: 280px;
-            height: 180px;
-            background: #1a4a6b;
-            border-radius: 8px;
-            object-fit: cover;
-            position: relative;
-            transform: perspective(800px) rotateX(20deg) rotateY(-25deg) translateX(-200vw);
-            box-shadow: 
-                0 0 0 2px #2d5a7b,
-                20px 30px 60px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(74, 144, 226, 0.1);
-            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            opacity: 0;
+        /* .subproject-media {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .project:nth-child(even) .board-3d {
-            transform: perspective(800px) rotateX(20deg) rotateY(25deg) translateX(200vw);
+        .subproject-media:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        } */
+
+        .subproject-media {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            object-fit: cover; /* Add this for proper image scaling */
         }
 
-        .project.animate .board-3d {
-            transform: perspective(800px) rotateX(20deg) rotateY(-25deg) translateX(0);
-            opacity: 1;
+        .subproject-media:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
         }
 
-        .project:nth-child(even).animate .board-3d {
-            transform: perspective(800px) rotateX(20deg) rotateY(25deg) translateX(0);
-            opacity: 1;
-        }
-
-        /* Subtle hover animation only after slide-in animation completes */
-        .project.animate .board-3d:hover {
-            transform: perspective(800px) rotateX(15deg) rotateY(-20deg) translateX(0) scale(1.02);
-            box-shadow: 
-                0 0 0 2px #2d5a7b,
-                25px 35px 70px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(74, 144, 226, 0.15);
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
-        }
-
-        .project:nth-child(even).animate .board-3d:hover {
-            transform: perspective(800px) rotateX(15deg) rotateY(20deg) translateX(0) scale(1.02);
-            box-shadow: 
-                0 0 0 2px #2d5a7b,
-                25px 35px 70px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(74, 144, 226, 0.15);
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
-        }
-
-        .project-content {
+        .subproject-content {
             flex: 1;
-            padding: 3rem;
-            transform: translateY(50px);
-            opacity: 0;
-            transition: all 0.8s ease 0.3s;
+            padding: 2rem;
         }
 
-        .project.animate .project-content {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .project-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
+        .subproject-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: #e0e0e0;
             font-weight: 600;
         }
 
-        .project-description {
+        .subproject-description {
             color: #b0b0b0;
             line-height: 1.7;
             margin-bottom: 2rem;
             font-size: 1.1rem;
         }
 
-        .project-tech {
+        .subproject-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
-            margin-bottom: 2rem;
         }
 
         .tech-tag {
-            background: rgba(74, 144, 226, 0.2);
-            color: #4a90e2;
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-size: 0.9rem;
-            border: 1px solid rgba(74, 144, 226, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.3);
             font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .project-link {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.7rem 1.5rem;
-            border: 1px solid rgba(74, 144, 226, 0.3);
-            border-radius: 5px;
-            background: rgba(74, 144, 226, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: rgba(74, 144, 226, 0.2);
-            transform: translateY(-2px);
         }
 
         /* About Section */
-        .about {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-            color: white;
-        }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
         }
 
         .about-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: rgba(74, 144, 226, 0.1);
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             font-size: 4rem;
-            margin: 0 auto;
-            border: 2px solid rgba(74, 144, 226, 0.3);
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #b0b0b0;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: #222222;
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .contact-link {
-            display: inline-block;
-            background: rgba(74, 144, 226, 0.2);
-            color: #4a90e2;
-            padding: 1rem 2rem;
+        .competency-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .competency-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Icons */
+        .contact-icons {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             text-decoration: none;
-            border-radius: 50px;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
-            border: 2px solid rgba(74, 144, 226, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .contact-link:hover {
-            background: rgba(74, 144, 226, 0.3);
-            transform: translateY(-2px);
+        .contact-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        .contact-icon.linkedin {
+            color: #0077b5;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact-icon.email {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .contact-icons {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                top: auto;
+                transform: none;
+                flex-direction: row;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .nav-links {
-                display: none;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .content-section {
+                padding: 2rem 1rem;
             }
 
-            .project {
-                flex-direction: column !important;
-                min-height: auto;
-                padding: 2rem 0;
-            }
-
-            .project-visual {
-                height: 300px;
-                margin-bottom: 2rem;
-            }
-
-            .board-3d {
-                width: 200px;
-                height: 130px;
-            }
-
-            .project-content {
-                padding: 1rem;
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
             }
 
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
+            .project-detail-header {
+                padding: 2rem 0;
             }
+
+            .project-detail-title {
+                font-size: 2rem;
+            }
+
+            .project-detail-content {
+                padding: 2rem 1rem;
+            }
+
+            .subproject-section {
+                flex-direction: column !important;
+                min-height: auto;
+                padding: 2rem 0;
+                gap: 2rem;
+            }
+
+            .subproject-visual {
+                order: 1;
+            }
+
+            .subproject-content {
+                order: 2;
+                padding: 1rem;
+            }
+
+            .subproject-media {
+                height: 250px;
+            }
+
+            .subproject-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Cursor following gradient effect */
+        .cursor-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(102, 126, 234, 0.1) 0%, transparent 50%);
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">QD</div>
+    <div class="cursor-gradient"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Quentin Delfosse</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Quentin Delfosse</h1>
-                <p>Electronics Engineer & Hardware Designer</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Founder & Robotics Engineer</h1>
+                <p>Designing intelligent systems that bridge the gap between imagination and reality</p>
                 <a href="#projects" class="cta-button">View My Work</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="project">
-                <div class="project-visual">
-                    <img src="images/project_eagle_1.png" alt="IoT Sensor Board" class="board-3d">
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be dynamically generated here -->
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">IoT Sensor Board</h3>
-                    <p class="project-description">
-                        Multi-sensor IoT board with wireless connectivity for environmental monitoring. 
-                        Features low-power design and real-time data transmission capabilities for 
-                        industrial applications requiring robust performance in harsh conditions.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">ESP32</span>
-                        <span class="tech-tag">KiCad</span>
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">LoRaWAN</span>
-                        <span class="tech-tag">I2C Protocol</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">GitHub</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">👨‍🔬</div>
+                    <div>
+                        <p>I'm a passionate robotics engineer with over 8 years of experience in designing and developing intelligent robotic systems. My work spans from space exploration rovers to medical prosthetics, always focused on creating technology that makes a meaningful impact.</p>
+                        <p>I hold a Ph.D. in Robotics from MIT and have published over 20 research papers in leading robotics journals. My expertise includes autonomous navigation, machine learning, computer vision, and human-robot interaction.</p>
+                        <a href="#" class="cta-button" style="margin-top: 1rem; display: inline-block;">Download CV</a>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="project">
-                <div class="project-visual">
-                    <img src="images/project_eagle_2.png" alt="IoT Sensor Board" class="board-3d">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Power Management Unit</h3>
-                    <p class="project-description">
-                        Advanced power management solution for battery-powered devices with multiple 
-                        voltage rails and intelligent switching. Optimized for efficiency and thermal 
-                        performance with comprehensive protection circuits.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Analog Design</span>
-                        <span class="tech-tag">SMPS</span>
-                        <span class="tech-tag">Altium Designer</span>
-                        <span class="tech-tag">LTSpice</span>
-                        <span class="tech-tag">Buck Converter</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">Datasheet</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Contact Icons -->
+    <div class="contact-icons">
+        <a href="mailto:quentin-delfossse@orange.fr" class="contact-icon email" title="Email">
+            ✉️
+        </a>
+        <a href="https://linkedin.com/in/quentindelfosse" target="_blank" class="contact-icon linkedin" title="LinkedIn">
+            in
+        </a>
+    </div>
 
-            <div class="project">
-                <div class="project-visual">
-                    <img src="images/iot-sensor-board.png" alt="IoT Sensor Board" class="board-3d">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">RF Communication Module</h3>
-                    <p class="project-description">
-                        High-frequency communication module designed for industrial environments. 
-                        Features advanced signal processing, antenna optimization, and robust 
-                        performance in electromagnetically challenging conditions.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">RF Design</span>
-                        <span class="tech-tag">FPGA</span>
-                        <span class="tech-tag">Verilog HDL</span>
-                        <span class="tech-tag">CST Studio</span>
-                        <span class="tech-tag">Antenna Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="project-visual">
-                    <img src="images/project_jetson.png" alt="IoT Sensor Board" class="board-3d">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Motor Control Board</h3>
-                    <p class="project-description">
-                        Precision motor control system with advanced feedback mechanisms for robotics 
-                        and automation. Implements sophisticated control algorithms for high-accuracy 
-                        positioning and smooth motion profiles.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">STM32</span>
-                        <span class="tech-tag">Motor Control</span>
-                        <span class="tech-tag">Encoder Interface</span>
-                        <span class="tech-tag">CAN Bus</span>
-                        <span class="tech-tag">PID Control</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">Documentation</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    👨‍💻
-                </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>
-                        I'm a passionate electronics engineer with expertise in hardware design, 
-                        embedded systems, and PCB development. I love creating innovative solutions 
-                        that bridge the gap between digital and analog worlds.
-                    </p>
-                    <p>
-                        With experience in both academic research and industry applications, 
-                        I specialize in designing efficient, reliable electronic systems 
-                        for IoT, automotive, and industrial applications.
-                    </p>
-                    <p>
-                        When I'm not designing circuits, you can find me exploring new technologies, 
-                        contributing to open-source projects, or sharing knowledge with the 
-                        engineering community.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title">Let's Connect</h2>
-                <p>
-                    Interested in collaboration or have a project in mind? 
-                    I'd love to hear from you!
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:quentin@example.com" class="contact-link">Email</a>
-                    <a href="https://linkedin.com/in/quentindelfosse" class="contact-link">LinkedIn</a>
-                    <a href="https://github.com/quentindelfosse" class="contact-link">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Project Detail Pages -->
+    <div id="project-details-container">
+        <!-- Project detail pages will be dynamically generated here -->
+    </div>
 
     <script>
+
+        function renderProjects(projects) {
+            const projectsGrid = document.getElementById('projects-grid');
+            if (!projectsGrid) {
+                console.error('projects-grid element not found');
+                return;
+            }
+            
+            projectsGrid.innerHTML = '';
+
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+                projectCard.onclick = () => openModal(project.id);
+                
+                projectCard.innerHTML = `
+                    <div class="project-image">${project.icon}</div>
+                    <div class="project-meta">
+                        <span>${project.company}</span>
+                        <span>${project.year}</span>
+                    </div>
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <button class="view-details">View Details</button>
+                `;
+                
+                projectsGrid.appendChild(projectCard);
+            });
+            console.log('Projects rendered:', projects.length);
+        }
+
+        function renderProjectDetails(projects) {
+            const container = document.getElementById('project-details-container');
+            if (!container) {
+                console.error('project-details-container element not found');
+                return;
+            }
+            
+            container.innerHTML = '';
+
+            projects.forEach(project => {
+                const detailPage = document.createElement('div');
+                detailPage.id = project.id;
+                detailPage.className = 'project-detail-page';
+                
+                const subprojectsHTML = project.subprojects.map((subproject, index) => `
+                    <div class="subproject-section">
+                        <div class="subproject-visual">
+                            ${subproject.image ? 
+                                `<img src="${subproject.image}" alt="${subproject.title}" class="subproject-media">` :
+                                `<div class="subproject-media">${subproject.placeholder}</div>`
+                            }
+                        </div>
+                        <div class="subproject-content">
+                            <h3 class="subproject-title">${subproject.title}</h3>
+                            <p class="subproject-description">${subproject.description}</p>
+                            <div class="subproject-tags">
+                                ${subproject.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                detailPage.innerHTML = `
+                    <div class="project-detail-header">
+                        <div class="project-detail-nav">
+                            <a href="#" class="back-button" onclick="closeProjectDetail('${project.id}')">
+                                &lt;
+                            </a>
+                        </div>
+                        <h2 class="project-detail-title">${project.detailTitle}</h2>
+                        <div class="project-detail-meta">${project.detailMeta}</div>
+                    </div>
+                    
+                    <div class="project-detail-content">
+                        <div class="project-overview-section">
+                            <h3>Project Overview</h3>
+                            <p>${project.overview}</p>
+                        </div>
+                        ${subprojectsHTML}
+                    </div>
+                `;
+                
+                container.appendChild(detailPage);
+            });
+            console.log('Project details rendered:', projects.length);
+        }
+
+        async function loadProjects() {
+            console.log('Loading projects from JSON...');
+            try {
+                const response = await fetch('projects.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('JSON data loaded:', data);
+                
+                renderProjects(data.projects);
+                renderProjectDetails(data.projects);
+                
+                // Initialize animations for the new content
+                setTimeout(initializeAnimations, 100);
+            } catch (error) {
+                console.error('Error loading projects from JSON:', error);
+                console.log('Falling back to embedded data...');
+                
+                // Fallback to embedded data if JSON loading fails
+                if (typeof projectsData !== 'undefined') {
+                    renderProjects(projectsData.projects);
+                    renderProjectDetails(projectsData.projects);
+                    setTimeout(initializeAnimations, 100);
+                }
+            }
+        }
+
+        function initializeAnimations() {
+            document.querySelectorAll('.project-card, .content-section').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Intersection Observer for scroll-triggered animations
+        // Project detail functionality
+        function openProjectDetail(projectId) {
+            document.getElementById(projectId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectDetail(projectId) {
+            document.getElementById(projectId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Update project card click handlers
+        function openModal(modalId) {
+            openProjectDetail(modalId);
+        }
+
+        // Cursor following gradient effect
+        document.addEventListener('mousemove', (e) => {
+            const gradient = document.querySelector('.cursor-gradient');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            gradient.style.setProperty('--mouse-x', x + '%');
+            gradient.style.setProperty('--mouse-y', y + '%');
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.project').forEach(project => {
-            observer.observe(project);
+        // Typing effect for hero text
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            console.log('Page loaded, initializing...');
+            
+            // Load projects from embedded data
+            loadProjects();
+            
+            // Initialize hero animations
+            document.querySelector('.hero').style.opacity = '1';
+            document.querySelector('.hero').style.transform = 'translateY(0)';
+            
+            // Typing effect for hero text
+            setTimeout(() => {
+                const subtitle = document.querySelector('.hero p');
+                if (subtitle) {
+                    const originalText = subtitle.textContent;
+                    typeWriter(subtitle, originalText, 30);
+                }
+            }, 1000);
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(20, 20, 20, 0.95)';
-                header.style.borderBottom = '1px solid rgba(100, 100, 100, 0.5)';
-            } else {
-                header.style.background = 'rgba(20, 20, 20, 0.9)';
-                header.style.borderBottom = '1px solid rgba(100, 100, 100, 0.3)';
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openDetail = document.querySelector('.project-detail-page[style*="block"]');
+                if (openDetail) {
+                    openDetail.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             }
         });
+
+        // Enhanced hover effects for subproject media
+        document.addEventListener('mouseenter', function(e) {
+            if (e.target && e.target.classList && e.target.classList.contains('subproject-media')) {
+                e.target.style.transform = 'translateY(-10px) scale(1.02)';
+                e.target.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.3)';
+            }
+        }, true);
+
+        document.addEventListener('mouseleave', function(e) {
+            if (e.target && e.target.classList && e.target.classList.contains('subproject-media')) {
+                e.target.style.transform = 'translateY(0) scale(1)';
+                e.target.style.boxShadow = 'none';
+            }
+        }, true);
     </script>
 </body>
 </html>
