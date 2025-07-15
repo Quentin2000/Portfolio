@@ -2,8 +2,11 @@
   "projects": [
     {
       "id": "caltech_rl_planner",
+      "category": "technical",
       "title": "Reinforcement‑Learning Local Planner",
       "icon": "🧠",
+      "image": "images/Caltech_m4_original.jpg",
+      "headerImage": "images/caltech_2024/environment.png",
       "company": "Caltech CAST",
       "year": "2024",
       "description": "Master’s‑thesis work implementing a reinforcement‑learning local planner for the M4 multimodal rover, delivering energy‑aware autonomous navigation over rough terrain.",
@@ -39,8 +42,11 @@
     },
     {
       "id": "caltech_m4_electronics",
+      "category": "technical",
       "title": "M4 Drone Electronics & Autonomy",
       "icon": "🤖",
+      "image": "images/Caltech_m4_davinci.jpg",
+      "headerImage": "images/caltech_2025/flight_2.png",
       "company": "Caltech CAST",
       "year": "2025",
       "description": "Research‑engineer role developing avionics, perception and autonomy for a heavy‑payload multimodal drone.",
@@ -78,8 +84,11 @@
     },
     {
       "id": "anymal_universal_tester",
+      "category": "technical",
       "title": "ANYmal Universal Tester PCB",
       "icon": "🛠️",
+      "image": "images/anymal.jpg",
+      "headerImage": "images/anybotics/test.jpg",
       "company": "ANYbotics",
       "year": "2023‑2024",
       "description": "Development of a plug‑and‑play tester PCB automating quality‑control procedures for ANYmal sub‑assemblies.",
@@ -123,26 +132,12 @@
       ]
     },
     {
-      "id": "xplore_systems",
-      "title": "Rover Systems Engineering",
-      "icon": "🛰️",
-      "company": "EPFL Xplore",
-      "year": "2020",
-      "description": "Defined system decomposition, interfaces and test plan for the first Xplore Mars‑analogue rover.",
-      "tags": [
-        "Systems Engineering",
-        "Requirements",
-        "Testing Plan"
-      ],
-      "detailTitle": "Systems Engineer",
-      "detailMeta": "01.2020 – 09.2020",
-      "overview": "Led definition of technical requirements and manufacturing roadmap.",
-      "subprojects": []
-    },
-    {
       "id": "xplore_tech_mgmt",
+      "category": "management",
       "title": "Technical Management & Project Planning",
       "icon": "🗂️",
+      "image": "images/xplore_argos.jpg",
+      "headerImage": "images/xplore_2021/podium_2.jpg",
       "company": "EPFL Xplore",
       "year": "2021",
       "description": "Vice President & Project Manager overseeing 50 + engineers, milestones and risk management.",
@@ -154,12 +149,26 @@
       "detailTitle": "Vice President & PM",
       "detailMeta": "09.2020 – 09.2021",
       "overview": "Organised concurrent‑engineering reviews with NASA/ESA experts and secured early ERC podium finish.",
-      "subprojects": []
+      "subprojects": [
+        {
+          "title": "Systems Engineering",
+          "description": "Defined system decomposition, interfaces and test plan for the first Xplore Mars‑analogue rover.",
+          "tags": [
+            "Systems Engineering",
+            "Requirements",
+            "Testing Plan"
+          ],
+          "image": "images/xplore_2023/project_jetson.png"
+        }
+      ]
     },
     {
       "id": "xplore_leadership",
+      "category": "management",
       "title": "Strategic Leadership & Partnerships",
       "icon": "📈",
+      "image": "images/xplore_astra.jpg",
+      "headerImage": "images/xplore_2022/Argos_unveiling_1.jpg",
       "company": "EPFL Xplore",
       "year": "2022",
       "description": "Presidency focused on external relations, funding (CHF 150 k) and long‑term strategy for an 80‑member organisation.",
@@ -175,8 +184,11 @@
     },
     {
       "id": "xplore_drone_avionics",
+      "category": "technical",
       "title": "Drone Flight Controller & Avionics",
       "icon": "🚁",
+      "image": "images/xplore_kerby_0.jpg",
+      "headerImage": "images/xplore_2023/podium.jpg",
       "company": "EPFL Xplore",
       "year": "2023",
       "description": "Designed and piloted the first Xplore UAV flight‑controller and sensor board for ERC 2023 drone operations.",
@@ -189,12 +201,49 @@
       "detailTitle": "UAV Avionics Engineer",
       "detailMeta": "09.2022 – 09.2023",
       "overview": "Implemented sensor fusion, motor control and safety FSM; operated the drone during ERC 2023 competition.",
-      "subprojects": []
+      "subprojects": [
+        {
+          "title": "Tester PCB Design",
+          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "tags": [
+            "KiCad",
+            "ADC",
+            "Isolation",
+            "DFM"
+          ],
+          "image": "images/xplore_2023/project_eagle_2.png"
+        },
+        {
+          "title": "Tester PCB Design",
+          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "tags": [
+            "KiCad",
+            "ADC",
+            "Isolation",
+            "DFM"
+          ],
+          "image": "images/xplore_2023/project_eagle_1.png"
+        },
+        {
+          "title": "Tester PCB Design",
+          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "tags": [
+            "KiCad",
+            "ADC",
+            "Isolation",
+            "DFM"
+          ],
+          "image": "images/xplore_2023/project_jetson.png"
+        }
+      ]
     },
     {
       "id": "rocket_team_avionics",
+      "category": "technical",
       "title": "Hybrid‑Rocket Avionics System",
       "icon": "🚀",
+      "image":"images/rocket_team.jpg",
+      "headerImage": "images/xplore_2022/podium.jpg",
       "company": "EPFL Rocket Team",
       "year": "2019‑2021",
       "description": "Real‑time data acquisition, telemetry and flight‑state sequencing for the Euroc‑winning hybrid rocket ‘Eiger’.",

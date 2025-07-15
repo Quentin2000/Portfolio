@@ -11,6 +11,20 @@
             box-sizing: border-box;
         }
 
+        :root {
+            /* Technical category - Blue colors (same tone, lighter values) */
+            --technical-primary: #1E40AF;
+            --technical-secondary: #1E40AF;
+            --technical-light: #93C5FD;      /* Light blue - same tone as primary */
+            --technical-extra-light: #DBEAFE; /* Extra light blue - same tone as primary */
+            
+            /* Management category - Red/Orange colors (same tones, lighter values) */
+            --management-primary: #7C3AED;     /* Deep space purple */
+            --management-secondary: #5B21B6;   /* Darker cosmic purple */
+            --management-light: #C4B5FD;       /* Light purple - same tone as primary */
+            --management-extra-light: #E9D5FF;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -85,7 +99,6 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
         }
 
         .hero p {
@@ -135,33 +148,97 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            border: 2px solid transparent;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
+        .project-card:hover .project-image {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transform: scale(1.02);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);  /* Slight zoom on hover for images */
+        }
+
+        .project-card.technical {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(30, 64, 175, 0.15);
+        }
+
+        .project-card.management {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+        }
+
+        .project-card.technical:hover {
+            border: 1px solid rgba(30, 64, 175, 0.3);
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-card.management:hover {
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .category-badge {
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            text-align: left;
+        }
+
+        .category-badge.technical {
+            color: var(--technical-primary);
+        }
+
+        .category-badge.management {
+            color: var(--management-primary);
         }
 
         .project-image {
             width: 100%;
             height: 200px;
-            background: #ddd;
-            border-radius: 10px;
-            margin-bottom: 1rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: #666;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;  /* Ensures image doesn't overflow the rounded corners */
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* Ensures image covers the container while maintaining aspect ratio */
+            object-position: center;  /* Centers the image within the container */
+            transition: transform 0.3s ease;
+        }
+
+        .project-image .icon-fallback {
+            /* Styles for icon fallback when no image is provided */
+            font-size: 3rem;
+            color: #667eea;
         }
 
         .project-meta {
@@ -201,19 +278,23 @@
         }
 
         .view-details {
-            background: #667eea;
-            color: white;
-            border: none;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.2);
             padding: 12px 30px;
-            border-radius: 30px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .view-details:hover {
+            background: #667eea;
+            color: white;
+            border: 1px solid #667eea;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
         }
         
         /* Project Detail Full Page */
@@ -231,11 +312,55 @@
         }
 
         .project-detail-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 100%;
+            height: 60vh; /* Increased height - adjust as needed (50vh, 70vh, etc.) */
+            min-height: 400px; /* Minimum height to ensure it's not too small */
             color: white;
             padding: 4rem 0;
             text-align: center;
             position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+            /* Default gradient fallback */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-detail-header.has-image {
+            background: none; /* Remove gradient when image is present */
+        }
+
+        .project-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--header-image);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .project-detail-header.has-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            z-index: 0;
+        }
+
+        .project-detail-header > * {
+            position: relative;
+            z-index: 1; /* Ensure text stays above the overlay */
         }
 
         .project-detail-nav {
@@ -321,48 +446,54 @@
             flex-direction: row-reverse;
         }
 
+        /* For placeholder/fallback content when no image is provided */
+        .subproject-media.placeholder {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #667eea;
+            backdrop-filter: blur(10px);
+        }
+
+        .subproject-media.placeholder:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+        }
+
+        /* Update the visual container to remove any background styling */
         .subproject-visual {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            /* Remove any background or styling that might interfere */
+            background: none;
+            padding: 0;
         }
-
-        /* .subproject-media {
-            width: 100%;
-            max-width: 500px;
-            height: 350px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .subproject-media:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-        } */
 
         .subproject-media {
             width: 100%;
             max-width: 500px;
             height: 350px;
             border-radius: 15px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            object-fit: cover; /* Add this for proper image scaling */
+            object-fit: cover;
+            object-position: center;
+            /* Completely clean - no borders, shadows, or containers */
+            background: none;
+            border: none;
+            box-shadow: none;
+            overflow: hidden;
         }
 
         .subproject-media:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            transform: translateY(-10px) scale(1.03);
+            /* No shadows or borders on hover - just the motion */
+            box-shadow: none;
+            border: none;
         }
 
         .subproject-content {
@@ -403,14 +534,16 @@
         /* About Section */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: auto 1fr;  /* Changed from 1fr 2fr to auto 1fr */
             gap: 3rem;
-            align-items: center;
+            align-items: start;  /* Changed from center to start for better alignment */
         }
 
         .about-image {
-            width: 100%;
-            height: 400px;
+            width: auto;  /* Let width adjust based on height */
+            aspect-ratio: 1;  /* This ensures it stays square */
+            height: 100%;  /* Takes the full height of the text container */
+            min-height: 300px;  /* Minimum height to ensure it's not too small */
             background: linear-gradient(45deg, #667eea, #764ba2);
             border-radius: 15px;
             display: flex;
@@ -418,25 +551,7 @@
             justify-content: center;
             color: white;
             font-size: 4rem;
-        }
-
-        .competencies {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .competency-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .competency-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            align-self: stretch;  /* This makes it stretch to match the text height */
         }
 
         /* Contact Icons */
@@ -496,6 +611,20 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                width: 250px;  /* Fixed width on mobile */
+                height: 250px;  /* Fixed height on mobile */
+                min-height: 250px;
+                justify-self: center;  /* Center it on mobile */
             }
         }
 
@@ -613,11 +742,12 @@
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
-                    <div class="about-image">👨‍🔬</div>
+                    <div class="about-image">👨‍💻</div>
                     <div>
-                        <p>I'm a passionate robotics engineer with over 8 years of experience in designing and developing intelligent robotic systems. My work spans from space exploration rovers to medical prosthetics, always focused on creating technology that makes a meaningful impact.</p>
-                        <p>I hold a Ph.D. in Robotics from MIT and have published over 20 research papers in leading robotics journals. My expertise includes autonomous navigation, machine learning, computer vision, and human-robot interaction.</p>
-                        <a href="#" class="cta-button" style="margin-top: 1rem; display: inline-block;">Download CV</a>
+                        <p>Robotics engineer specialized in space technologies and aerial systems, I currently design, prototype, and field-test multimodal drones for extreme environments.</p>
+                        <p>After completing my Master's thesis research at Caltech on reinforcement-learning navigation, I graduated from EPFL in 2024 with an M.Sc. in Robotics and Space Technologies.</p>
+                        <p>During my studies, I previously co-founded and led EPFL Xplore, a 100-member team whose planetary rovers secured three consecutive podiums at the European Rover Challenge from 2021 to 2023, and earned Excellence Awards in Autonomous Navigation, Autonomous Manipulation, Science and Probing.</p>
+                        <a href="assets/Quentin_Delfosse_Resume.pdf" class="cta-button" style="margin-top: 1rem; display: inline-block;" download>Download CV</a>
                     </div>
                 </div>
             </div>
@@ -652,11 +782,18 @@
 
             projects.forEach(project => {
                 const projectCard = document.createElement('div');
-                projectCard.className = 'project-card';
+                projectCard.className = `project-card ${project.category}`; // MODIFIED: Add category class
                 projectCard.onclick = () => openModal(project.id);
                 
                 projectCard.innerHTML = `
-                    <div class="project-image">${project.icon}</div>
+                    <div class="category-badge ${project.category}">${project.category}</div>
+                    <div class="project-image">
+                        ${project.image ? 
+                            `<img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display: none;">${project.icon}</div>` :
+                            `<div class="icon-fallback">${project.icon}</div>`
+                        }
+                    </div>
                     <div class="project-meta">
                         <span>${project.company}</span>
                         <span>${project.year}</span>
@@ -693,7 +830,7 @@
                         <div class="subproject-visual">
                             ${subproject.image ? 
                                 `<img src="${subproject.image}" alt="${subproject.title}" class="subproject-media">` :
-                                `<div class="subproject-media">${subproject.placeholder}</div>`
+                                `<div class="subproject-media placeholder">${subproject.placeholder || '🖼️'}</div>`
                             }
                         </div>
                         <div class="subproject-content">
@@ -707,7 +844,7 @@
                 `).join('');
 
                 detailPage.innerHTML = `
-                    <div class="project-detail-header">
+                    <div class="project-detail-header ${project.headerImage ? 'has-image' : ''}" ${project.headerImage ? `style="--header-image: url('${project.headerImage}')"` : ''}>
                         <div class="project-detail-nav">
                             <a href="#" class="back-button" onclick="closeProjectDetail('${project.id}')">
                                 &lt;
@@ -880,20 +1017,6 @@
             }
         });
 
-        // Enhanced hover effects for subproject media
-        document.addEventListener('mouseenter', function(e) {
-            if (e.target && e.target.classList && e.target.classList.contains('subproject-media')) {
-                e.target.style.transform = 'translateY(-10px) scale(1.02)';
-                e.target.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.3)';
-            }
-        }, true);
-
-        document.addEventListener('mouseleave', function(e) {
-            if (e.target && e.target.classList && e.target.classList.contains('subproject-media')) {
-                e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = 'none';
-            }
-        }, true);
     </script>
 </body>
 </html>
