@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Chen - Robotics Engineer</title>
+    <title>Quentin Delfosse - Founder & Robotics Engineer</title>
     <style>
         * {
             margin: 0;
@@ -24,6 +24,11 @@
             --management-light: #C4B5FD;       /* Light purple - same tone as primary */
             --management-extra-light: #E9D5FF;
         }
+
+        html {
+            overscroll-behavior: none;
+            overscroll-behavior-y: none;
+        }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -31,6 +36,8 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            overscroll-behavior: none;
+            overscroll-behavior-y: none;
         }
 
         /* Navigation */
@@ -57,7 +64,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #667eea;
+            color: #8f95b3;
         }
 
         .nav-links {
@@ -79,8 +86,8 @@
 
         /* Main Content */
         .main-content {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
+            margin-top: 0; /* Remove previous margin */
+            min-height: 100vh;
         }
 
         .container {
@@ -92,8 +99,59 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 4rem 0;
+            padding: calc(4rem + 80px) 0 4rem 0;
             color: white;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Default gradient fallback */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero.has-image {
+            background: none; /* Remove gradient when image is present */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--hero-image);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .hero.has-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1; /* Ensure text stays above the overlay */
+        }
+
+        .hero .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         .hero h1 {
@@ -105,6 +163,69 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            .scroll-down-button {
+                bottom: 1rem; /* Slightly more space on mobile for touch */
+                font-size: 0.9rem;
+            }
+            
+            .scroll-down-arrow {
+                font-size: 2rem;
+            }
+        }
+
+        .scroll-down-button {
+            position: fixed;
+            bottom: 2rem; /* Closer to bottom - reduced from 2rem */
+            left: 50%;
+            transform: translateX(-50%);
+            background: none; /* Remove background */
+            border: none; /* Remove borders */
+            color: white;
+            padding: 0rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0rem;
+            z-index: 1000;
+        }
+
+        .scroll-down-button:hover {
+            transform: translateX(-50%) translateY(-5px);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .scroll-down-arrow {
+            font-size: 3rem; /* Larger for better visibility */
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-3px);
+            }
         }
 
         .cta-button {
@@ -130,6 +251,7 @@
             margin: 2rem 0;
             padding: 3rem;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 100px; /* Account for fixed navbar when scrolling */
         }
 
         .section-title {
@@ -189,6 +311,53 @@
             border: 1px solid rgba(124, 58, 237, 0.3);
             box-shadow: 0 20px 60px rgba(124, 58, 237, 0.08);
             background: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-card.management .tag {
+            background: #8B5CF6;
+            color: white;
+        }
+
+        /* Management category "View Details" button */
+        .project-card.management .view-details {
+            background: rgba(124, 58, 237, 0.1);
+            color: #8B5CF6;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card.management .view-details:hover {
+            background: #8B5CF6;
+            color: white;
+            border: 1px solid #8B5CF6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+        }
+
+
+        .project-card.technical .view-details {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card.technical .view-details:hover {
+            background: #667eea;
+            color: white;
+            border: 1px solid #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
         }
 
         .category-badge {
@@ -277,26 +446,6 @@
             font-size: 0.8rem;
         }
 
-        .view-details {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .view-details:hover {
-            background: #667eea;
-            color: white;
-            border: 1px solid #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
-        }
-        
         /* Project Detail Full Page */
         .project-detail-page {
             display: none;
@@ -363,17 +512,22 @@
             z-index: 1; /* Ensure text stays above the overlay */
         }
 
+        /* CSS Updates - Add these styles to your existing CSS */
+
+        /* Update the project detail navigation */
         .project-detail-nav {
             position: absolute;
             top: 2rem;
             left: 2rem;
             right: 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Only close button in top nav now */
             align-items: center;
+            z-index: 10; /* Ensure it's above other content */
         }
 
-        .back-button {
+        /* Close button (same style as original back button) */
+        .close-button {
             background: white;
             border: none;
             color: #667eea;
@@ -389,11 +543,94 @@
             justify-content: center;
             width: 60px;
             height: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add shadow like original */
+            backdrop-filter: blur(10px); /* Add backdrop filter like original */
         }
 
-        .back-button:hover {
+        .close-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Left and right navigation arrows */
+        .project-nav-arrows {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 2001;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            pointer-events: none; /* Allow clicks to pass through the container */
+            padding: 0 2rem; /* Add padding to match the spacing */
+        }
+
+        .nav-arrow {
+            background: white;
+            border: none;
+            color: #667eea;
+            padding: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 2rem; /* Larger font for better visibility */
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            pointer-events: auto; /* Re-enable clicks on the buttons themselves */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add shadow like original */
+            backdrop-filter: blur(10px); /* Add backdrop filter like original */
+        }
+
+        .nav-arrow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-arrow:disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .project-nav-arrows {
+                position: fixed;
+                top: auto;
+                bottom: 2rem;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                width: auto;
+                justify-content: center;
+                gap: 2rem;
+                padding: 0;
+            }
+            
+            .nav-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .close-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
 
         .project-detail-title {
@@ -402,9 +639,72 @@
             font-weight: 700;
         }
 
+        .project-detail-company {
+            font-size: 1.4rem;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .company-logo {
+            position: relative; /* Changed from absolute */
+            top: auto;
+            left: auto;
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .company-logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .company-logo-fallback {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .mission-patch {
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .mission-patch img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .mission-patch-fallback {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
         .project-detail-meta {
             font-size: 1.2rem;
             opacity: 0.9;
+            margin-top: 0.5rem;
         }
 
         .project-detail-content {
@@ -413,9 +713,40 @@
             padding: 4rem 2rem;
         }
 
+        .project-detail-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-detail-logos {
+                gap: 1rem;
+            }
+            
+            .company-logo,
+            .mission-patch {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .company-logo img,
+            .mission-patch img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .company-logo-fallback,
+            .mission-patch-fallback {
+                font-size: 1rem;
+            }
+        }
+
         .project-overview-section {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             padding: 0 2rem;
         }
 
@@ -426,11 +757,87 @@
         }
 
         .project-overview-section p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             line-height: 1.8;
             color: #b0b0b0;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .project-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 0rem 0 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .action-button svg {
+            width: 16px;
+            height: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+        }
+
+        .action-button.download {
+            background: rgba(150, 150, 150, 0.1); /* Very subtle gray background */
+            color: rgba(250, 250, 250, 0.8);
+            border: 1px solid rgba(100, 100, 100, 0.2);
+        }
+
+        .action-button.download:hover {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+        }
+
+        .action-button.external {
+            background: rgba(150, 150, 150, 0.1); /* Very subtle gray background */
+            color: rgba(250, 250, 250, 0.8);
+            border: 1px solid rgba(100, 100, 100, 0.2);
+        }
+
+        .action-button.external:hover {
+            background: #ef4444;
+            color: white;
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .project-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
 
         /* Alternating Subproject Layout */
@@ -496,6 +903,149 @@
             border: none;
         }
 
+        .subproject-gallery {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .subproject-main-media {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 1rem;
+            display: block; 
+            /* background: #000; */
+        }
+
+        .subproject-main-media.video {
+            cursor: default;
+            object-fit: none;
+        }
+
+        .subproject-main-media:hover:not(.video) {
+            transform: translateY(-10px) scale(1.03);
+        }
+
+        .subproject-video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .subproject-main-media.video.subproject-video {
+            width: 100%;
+            height: 350px; /* Same as images */
+            border-radius: 15px;
+            object-fit: none;
+        }
+
+        .subproject-main-media.with-margin {
+            object-fit: contain;
+            padding: var(--media-margin);
+        }
+
+        .subproject-main-media.with-margin.video {
+            object-fit: none; /* Don't apply object-fit to videos */
+            padding: var(--media-margin);
+        }
+
+        .video-thumbnail-indicator {
+            position: relative;
+        }
+
+        .video-thumbnail-indicator::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .subproject-main-image {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 1rem;
+        }
+
+        .subproject-main-image:hover {
+            transform: translateY(-10px) scale(1.03);
+        }
+
+        .image-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            cursor: pointer;
+            object-fit: cover;
+            object-position: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            opacity: 0.7;
+        }
+
+        .thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .thumbnail.active {
+            border: 2px solid #667eea;
+            opacity: 1;
+        }
+
+        .thumbnail-placeholder {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail-placeholder:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .thumbnail-placeholder.active {
+            border: 2px solid #667eea;
+            opacity: 1;
+        }
+
         .subproject-content {
             flex: 1;
             padding: 2rem;
@@ -543,7 +1093,7 @@
             width: auto;  /* Let width adjust based on height */
             aspect-ratio: 1;  /* This ensures it stays square */
             height: 100%;  /* Takes the full height of the text container */
-            min-height: 300px;  /* Minimum height to ensure it's not too small */
+            min-height: 275px;  /* Minimum height to ensure it's not too small */
             background: linear-gradient(45deg, #667eea, #764ba2);
             border-radius: 15px;
             display: flex;
@@ -719,11 +1269,15 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
-        <section id="home" class="hero">
+        <section id="home" class="hero has-image" style="--hero-image: url('https://drive.google.com/thumbnail?id=19zFKYrKvaQcG890pngFu4KbKRg5nXzB5&sz=w2000')">
             <div class="container">
                 <h1>Founder & Robotics Engineer</h1>
                 <p>Designing intelligent systems that bridge the gap between imagination and reality</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+                
+                <!-- Scroll Down Button -->
+                <a href="#projects" class="scroll-down-button" onclick="scrollToProjects(event)">
+                    <div class="scroll-down-arrow">⌄</div>
+                </a>
             </div>
         </section>
 
@@ -742,11 +1296,13 @@
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
-                    <div class="about-image">👨‍💻</div>
+                    <div class="about-image">
+                        <img src="https://drive.google.com/thumbnail?id=166WYu2-DHzY8i-k9nzg9B5yBOyXj2nhm&sz=w1000" alt="Quentin Delfosse" style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
                     <div>
-                        <p>Robotics engineer specialized in space technologies and aerial systems, I currently design, prototype, and field-test multimodal drones for extreme environments.</p>
-                        <p>After completing my Master's thesis research at Caltech on reinforcement-learning navigation, I graduated from EPFL in 2024 with an M.Sc. in Robotics and Space Technologies.</p>
-                        <p>During my studies, I previously co-founded and led EPFL Xplore, a 100-member team whose planetary rovers secured three consecutive podiums at the European Rover Challenge from 2021 to 2023, and earned Excellence Awards in Autonomous Navigation, Autonomous Manipulation, Science and Probing.</p>
+                        <p style="margin-bottom: 1rem;">Robotics engineer specialized in space technologies and aerial systems, I currently design, prototype, and field-test multimodal drones for extreme environments.</p>
+                        <p style="margin-bottom: 1rem;">After completing my Master's thesis research at Caltech on reinforcement-learning navigation, I graduated from EPFL in 2024 with an M.Sc. in Robotics and Space Technologies.</p>
+                        <p style="margin-bottom: 0.5rem;">During my studies, I joined the EPFL Rocket Team as Avionics Engineer and later co-founded and led EPFL Xplore, a 100+ members initiative whose planetary rovers secured three consecutive podiums at the European Rover Challenge from 2021 to 2023, and earned Excellence Awards in Autonomous Navigation, Autonomous Manipulation, Science and Probing.</p>
                         <a href="assets/Quentin_Delfosse_Resume.pdf" class="cta-button" style="margin-top: 1rem; display: inline-block;" download>Download CV</a>
                     </div>
                 </div>
@@ -774,7 +1330,7 @@
         function renderProjects(projects) {
             const projectsGrid = document.getElementById('projects-grid');
             if (!projectsGrid) {
-                console.error('projects-grid element not found');
+                // console.error('projects-grid element not found');
                 return;
             }
             
@@ -782,14 +1338,19 @@
 
             projects.forEach(project => {
                 const projectCard = document.createElement('div');
-                projectCard.className = `project-card ${project.category}`; // MODIFIED: Add category class
-                projectCard.onclick = () => openModal(project.id);
+                projectCard.className = `project-card ${project.category}`;
+                projectCard.onclick = () => openProjectDetail(project.id);
                 
+                // Convert the main project image if it's a Google Drive URL
+                const convertedImage = project.image ? convertGDriveToThumbnail(project.image, 'w400', `Project ${project.id} main image`) : null;
+                
+                console.log(`Converted image: ${convertedImage}`);
+
                 projectCard.innerHTML = `
                     <div class="category-badge ${project.category}">${project.category}</div>
                     <div class="project-image">
-                        ${project.image ? 
-                            `<img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        ${convertedImage ? 
+                            `<img src="${convertedImage}" alt="${project.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="icon-fallback" style="display: none;">${project.icon}</div>` :
                             `<div class="icon-fallback">${project.icon}</div>`
                         }
@@ -811,47 +1372,243 @@
             console.log('Projects rendered:', projects.length);
         }
 
+        let currentProjects = []; // Store projects array globally
+
+        function navigateProject(currentProjectId, direction) {
+            const currentIndex = currentProjects.findIndex(p => p.id === currentProjectId);
+            const newIndex = currentIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < currentProjects.length) {
+                document.getElementById(currentProjectId).style.display = 'none';
+                openProjectDetail(currentProjects[newIndex].id);
+            }
+        }
+
+        function updateNavigationButtons(projectId) {
+            const currentIndex = currentProjects.findIndex(p => p.id === projectId);
+            
+            // Update previous button
+            const prevButton = document.getElementById(`prev-arrow-${projectId}`);
+            if (prevButton) {
+                prevButton.disabled = currentIndex <= 0;
+            }
+            
+            // Update next button
+            const nextButton = document.getElementById(`next-arrow-${projectId}`);
+            if (nextButton) {
+                nextButton.disabled = currentIndex >= currentProjects.length - 1;
+            }
+        }
+
+        function scrollToProjects(event) {
+            event.preventDefault();
+            
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
         function renderProjectDetails(projects) {
             const container = document.getElementById('project-details-container');
             if (!container) {
-                console.error('project-details-container element not found');
+                // console.error('project-details-container element not found');
                 return;
             }
             
             container.innerHTML = '';
 
-            projects.forEach(project => {
+            projects.forEach((project, index) => {
                 const detailPage = document.createElement('div');
                 detailPage.id = project.id;
                 detailPage.className = 'project-detail-page';
                 
-                const subprojectsHTML = project.subprojects.map((subproject, index) => `
-                    <div class="subproject-section">
-                        <div class="subproject-visual">
-                            ${subproject.image ? 
-                                `<img src="${subproject.image}" alt="${subproject.title}" class="subproject-media">` :
-                                `<div class="subproject-media placeholder">${subproject.placeholder || '🖼️'}</div>`
-                            }
+                // Convert header image if it's a Google Drive share URL
+                const headerImage = project.headerImage ? convertGDriveToThumbnail(project.headerImage, 'w1000') : null;
+                
+                // Convert company logo if it's a Google Drive share URL
+                const companyLogo = project.companyLogo ? convertGDriveToThumbnail(project.companyLogo, 'w200') : null;
+                
+                // Convert mission patch if it's a Google Drive share URL
+                const missionPatch = project.missionPatch ? convertGDriveToThumbnail(project.missionPatch, 'w200') : null;
+                
+                // Generate logos section with converted URLs
+                let logosHTML = '';
+                if (companyLogo || missionPatch) {
+                    logosHTML = `
+                        <div class="project-detail-logos">
+                            ${companyLogo ? `
+                                <div class="company-logo">
+                                    <img src="${companyLogo}" alt="${project.company}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="company-logo-fallback" style="display: none;">${project.company.charAt(0)}</div>
+                                </div>
+                            ` : ''}
+                            ${missionPatch ? `
+                                <div class="mission-patch">
+                                    <img src="${missionPatch}" alt="Mission Patch" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="mission-patch-fallback" style="display: none;">🚀</div>
+                                </div>
+                            ` : ''}
                         </div>
-                        <div class="subproject-content">
-                            <h3 class="subproject-title">${subproject.title}</h3>
-                            <p class="subproject-description">${subproject.description}</p>
-                            <div class="subproject-tags">
-                                ${subproject.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+                    `;
+                }
+                        
+                // Generate action buttons if they exist
+                let actionButtonsHTML = '';
+                if (project.technicalDoc || project.externalLink) {
+                    actionButtonsHTML = `
+                        <div class="project-actions">
+                            ${project.technicalDoc ? `
+                                <a href="${project.technicalDoc.url}" 
+                                class="action-button download" 
+                                ${project.technicalDoc.type === 'gdrive' ? 'target="_blank" rel="noopener noreferrer"' : 'download'}>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866.549 3.921 1.453l2.814-2.814C17.503 2.988 15.139 2 12.545 2 7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748L12.545 10.239z"/>
+                                    </svg>
+                                    ${project.technicalDoc.label || 'View Document'}
+                                </a>
+                            ` : ''}
+                            ${project.externalLink ? `
+                                <a href="${project.externalLink.url}" class="action-button external" target="_blank" rel="noopener noreferrer">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    ${project.externalLink.label || 'Watch Video'}
+                                </a>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                
+                const subprojectsHTML = project.subprojects.map((subproject, subIndex) => {
+                    let mediaHTML = '';
+                    let thumbnailsHTML = '';
+                    
+                    if (subproject.media && subproject.media.length > 0) {
+                        const mainMediaId = `main-media-${project.id}-${subIndex}`;
+                        const firstMedia = subproject.media[0];
+                        
+                        // Check if first media has margin
+                        const marginClass = firstMedia.margin ? 'with-margin' : '';
+                        const marginStyle = firstMedia.margin ? `style="--media-margin: ${firstMedia.margin}"` : '';
+                        
+                        if (firstMedia.type === 'video') {
+                            // Video handling remains the same
+                            if (firstMedia.platform === 'instagram') {
+                                mediaHTML = `
+                                    <blockquote class="instagram-media subproject-main-media video ${marginClass}" 
+                                                data-instgrm-permalink="${firstMedia.src}" 
+                                                data-instgrm-version="14"
+                                                id="${mainMediaId}"
+                                                ${marginStyle}>
+                                        <a href="${firstMedia.src}" target="_blank">View on Instagram</a>
+                                    </blockquote>
+                                `;
+                            } else {
+                                mediaHTML = `
+                                    <div class="subproject-main-media video ${marginClass}" id="${mainMediaId}" ${marginStyle}>
+                                        <iframe src="${firstMedia.src}" class="subproject-video" allowfullscreen></iframe>
+                                    </div>
+                                `;
+                            }
+                        } else {
+                            // Apply helper to convert Google Drive URLs for images
+                            const convertedSrc = convertGDriveToThumbnail(firstMedia.src, 'w1000');
+                            mediaHTML = `<img src="${convertedSrc}" alt="${subproject.title}" class="subproject-main-media ${marginClass}" id="${mainMediaId}" loading="lazy" ${marginStyle}>`;
+                        }
+                        
+                        if (subproject.media.length > 1) {
+                            thumbnailsHTML = `
+                                <div class="image-thumbnails">
+                                    ${subproject.media.map((media, mediaIndex) => {
+                                        // Convert thumbnail URLs for BOTH images AND videos
+                                        const convertedThumbnail = convertGDriveToThumbnail(media.thumbnail, 'w200', `Media ${mediaIndex} thumbnail`);
+                                        
+                                        const isVideo = media.type === 'video';
+                                        const thumbnailClass = `thumbnail ${mediaIndex === 0 ? 'active' : ''} ${isVideo ? 'video-thumbnail-indicator' : ''}`;
+                                        
+                                        // For the onclick, we need to convert the media object URLs
+                                        const convertedMedia = { ...media };
+                                        if (media.type === 'image') {
+                                            convertedMedia.src = convertGDriveToThumbnail(media.src, 'w1000');
+                                        }
+                                        // Always convert thumbnail regardless of type
+                                        convertedMedia.thumbnail = convertGDriveToThumbnail(media.thumbnail, 'w200');
+                                        
+                                        return `<img src="${convertedThumbnail}" alt="Thumbnail ${mediaIndex + 1}" 
+                                                class="${thumbnailClass}" 
+                                                onclick="switchMedia('${mainMediaId}', ${JSON.stringify(convertedMedia).replace(/"/g, '&quot;')}, this, '${project.id}-${subIndex}')">`
+                                    }).join('')}
+                                </div>
+                            `;
+                        }
+                    } else if (subproject.images && subproject.images.length > 0) {
+                        // Backward compatibility for images array
+                        const mainImageId = `main-media-${project.id}-${subIndex}`;
+                        mediaHTML = `<img src="${subproject.images[0]}" alt="${subproject.title}" class="subproject-main-media" id="${mainImageId}" loading="lazy">`;
+                        
+                        if (subproject.images.length > 1) {
+                            thumbnailsHTML = `
+                                <div class="image-thumbnails">
+                                    ${subproject.images.map((img, imgIndex) => 
+                                        `<img src="${img}" alt="Thumbnail ${imgIndex + 1}" 
+                                            class="thumbnail ${imgIndex === 0 ? 'active' : ''}" 
+                                            onclick="switchImage('${mainImageId}', '${img}', this, '${project.id}-${subIndex}')">`
+                                    ).join('')}
+                                </div>
+                            `;
+                        }
+                    } else if (subproject.image) {
+                        // Single image case (backward compatibility)
+                        mediaHTML = `<img src="${subproject.image}" alt="${subproject.title}" class="subproject-main-media" loading="lazy">`;
+                    } else {
+                        // Placeholder case
+                        mediaHTML = `<div class="subproject-media placeholder">${subproject.placeholder || '🖼️'}</div>`;
+                    }
+                    
+                    return `
+                        <div class="subproject-section">
+                            <div class="subproject-visual">
+                                <div class="subproject-gallery">
+                                    ${mediaHTML}
+                                    ${thumbnailsHTML}
+                                </div>
+                            </div>
+                            <div class="subproject-content">
+                                <h3 class="subproject-title">${subproject.title}</h3>
+                                <p class="subproject-description">${subproject.description}</p>
+                                <div class="subproject-tags">
+                                    ${subproject.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
 
                 detailPage.innerHTML = `
-                    <div class="project-detail-header ${project.headerImage ? 'has-image' : ''}" ${project.headerImage ? `style="--header-image: url('${project.headerImage}')"` : ''}>
+                    <div class="project-detail-header ${headerImage ? 'has-image' : ''}" ${headerImage ? `style="--header-image: url('${headerImage}')"` : ''}>
                         <div class="project-detail-nav">
-                            <a href="#" class="back-button" onclick="closeProjectDetail('${project.id}')">
-                                &lt;
-                            </a>
+                            <button class="close-button" onclick="closeProjectDetail('${project.id}')">
+                                ×
+                            </button>
                         </div>
                         <h2 class="project-detail-title">${project.detailTitle}</h2>
+                        <div class="project-detail-company">${project.company}</div>
                         <div class="project-detail-meta">${project.detailMeta}</div>
+                        ${logosHTML}
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <div class="project-nav-arrows">
+                        <button class="nav-arrow" id="prev-arrow-${project.id}" onclick="navigateProject('${project.id}', -1)">
+                            ‹
+                        </button>
+                        <button class="nav-arrow" id="next-arrow-${project.id}" onclick="navigateProject('${project.id}', 1)">
+                            ›
+                        </button>
                     </div>
                     
                     <div class="project-detail-content">
@@ -859,6 +1616,9 @@
                             <h3>Project Overview</h3>
                             <p>${project.overview}</p>
                         </div>
+                        
+                        ${actionButtonsHTML}
+                        
                         ${subprojectsHTML}
                     </div>
                 `;
@@ -878,6 +1638,7 @@
                 const data = await response.json();
                 console.log('JSON data loaded:', data);
                 
+                currentProjects = data.projects; // Store globally
                 renderProjects(data.projects);
                 renderProjectDetails(data.projects);
                 
@@ -889,11 +1650,115 @@
                 
                 // Fallback to embedded data if JSON loading fails
                 if (typeof projectsData !== 'undefined') {
+                    currentProjects = projectsData.projects; // Store globally
                     renderProjects(projectsData.projects);
                     renderProjectDetails(projectsData.projects);
                     setTimeout(initializeAnimations, 100);
                 }
             }
+        }
+
+        function switchMedia(mainMediaId, mediaData, clickedThumbnail, galleryId) {
+            const media = typeof mediaData === 'string' ? JSON.parse(mediaData) : mediaData;
+            const oldMedia = document.getElementById(mainMediaId);
+            
+            if (!oldMedia) return;
+            
+            const marginClass = media.margin ? 'with-margin' : '';
+            const marginStyle = media.margin ? `--media-margin: ${media.margin}` : '';
+            
+            let newMediaHTML = '';
+            
+            if (media.type === 'video') {
+                newMediaHTML = `
+                    <div class="subproject-main-media video ${marginClass}" id="${mainMediaId}" ${marginStyle ? `style="${marginStyle}"` : ''}>
+                        <iframe src="${media.src}" class="subproject-video" allowfullscreen></iframe>
+                    </div>
+                `;
+            } else {
+                // Apply helper for image URLs (src was already converted in the media object)
+                newMediaHTML = `<img src="${media.src}" alt="Media" class="subproject-main-media ${marginClass}" id="${mainMediaId}" loading="lazy" ${marginStyle ? `style="${marginStyle}"` : ''}>`;
+            }
+            
+            oldMedia.outerHTML = newMediaHTML;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll(`[onclick*="${galleryId}"]`);
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            clickedThumbnail.classList.add('active');
+        }
+
+        function switchImage(mainImageId, newSrc, clickedThumbnail, galleryId) {
+            // Update main image
+            const mainImage = document.getElementById(mainImageId);
+            if (mainImage) {
+                mainImage.src = newSrc;
+            }
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll(`[onclick*="${galleryId}"]`);
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            clickedThumbnail.classList.add('active');
+        }
+
+        function convertGDriveToThumbnail(url, size = 'w1000', context = '') {
+            // Check if it's already a thumbnail URL
+            if (url.includes('thumbnail?id=')) {
+                return url;
+            }
+            
+            // Don't process if not a Google Drive URL
+            if (!url.includes('drive.google.com')) {
+                return url;
+            }
+            
+            let fileId = null;
+            let formatDetected = '';
+            
+            // Format 1: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+            if (url.includes('/file/d/')) {
+                const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+                if (match) {
+                    fileId = match[1];
+                    formatDetected = 'file/d/ format';
+                }
+            }
+            // Format 2: https://drive.google.com/open?id=FILE_ID&usp=drive_copy
+            else if (url.includes('/open?id=')) {
+                const match = url.match(/[?&]id=([a-zA-Z0-9-_]+)/);
+                if (match) {
+                    fileId = match[1];
+                    formatDetected = 'open?id= format';
+                }
+            }
+            // Format 3: Any other Google Drive URL with id parameter
+            else if (url.includes('id=')) {
+                const match = url.match(/[?&]id=([a-zA-Z0-9-_]+)/);
+                if (match) {
+                    fileId = match[1];
+                    formatDetected = 'generic id= format';
+                }
+            }
+            
+            // If no file ID found, return original
+            if (!fileId) {
+                if (context) {
+                    // console.log(`${context} - Could not extract file ID from:`, url);
+                }
+                return url;
+            }
+            
+            const finalUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=${size}`;
+            
+            // Log with format detection
+            // if (context) {
+            //     console.log(`${context} - Format detected:`, formatDetected);
+            //     console.log(`${context} - File ID:`, fileId);
+            //     console.log(`${context} - Final URL:`, finalUrl);
+            //     console.log('---');
+            // }
+            
+            return finalUrl;
         }
 
         function initializeAnimations() {
@@ -919,10 +1784,9 @@
             });
         });
 
-        // Project detail functionality
-        function openProjectDetail(projectId) {
-            document.getElementById(projectId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        function openModal(modalId) {
+            // This function is kept for backward compatibility
+            openProjectDetail(modalId);
         }
 
         function closeProjectDetail(projectId) {
@@ -931,8 +1795,10 @@
         }
 
         // Update project card click handlers
-        function openModal(modalId) {
-            openProjectDetail(modalId);
+        function openProjectDetail(projectId) {
+            document.getElementById(projectId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            updateNavigationButtons(projectId);
         }
 
         // Cursor following gradient effect
@@ -1008,11 +1874,16 @@
 
         // Keyboard navigation for accessibility
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const openDetail = document.querySelector('.project-detail-page[style*="block"]');
-                if (openDetail) {
-                    openDetail.style.display = 'none';
-                    document.body.style.overflow = 'auto';
+            const openDetail = document.querySelector('.project-detail-page[style*="block"]');
+            if (openDetail) {
+                const projectId = openDetail.id;
+                
+                if (e.key === 'Escape') {
+                    closeProjectDetail(projectId);
+                } else if (e.key === 'ArrowLeft') {
+                    navigateProject(projectId, -1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateProject(projectId, 1);
                 }
             }
         });

@@ -1,83 +1,280 @@
 {
   "projects": [
     {
-      "id": "caltech_rl_planner",
+      "id": "caltech_m4_electronics",
       "category": "technical",
-      "title": "Reinforcement‑Learning Local Planner",
-      "icon": "🧠",
-      "image": "images/Caltech_m4_original.jpg",
-      "headerImage": "images/caltech_2024/environment.png",
+      "title": "System Design, Testing & Operations",
+      "icon": "🤖", 
+      "image": "https://drive.google.com/open?id=16SaaQ3GFp9ybK1TgWgP8AcMQOTLgJPF9&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1tXVqEdy-QsOaOWdV618USyvRPhn9rzT4&usp=drive_copy",
       "company": "Caltech CAST",
-      "year": "2024",
-      "description": "Master’s‑thesis work implementing a reinforcement‑learning local planner for the M4 multimodal rover, delivering energy‑aware autonomous navigation over rough terrain.",
+      "companyLogo": "https://drive.google.com/open?id=1Px_D1FDxwUtwCmtKL7M_BEN9y-hsvKJX&usp=drive_copy",
+      "year": "2025",
+      "description": "Development of the full hardware and software architectures for an autonomous multimodal drone operating in urban environment.",
       "tags": [
-        "Reinforcement Learning",
+        "Systems Engineering",
+        "Embedded Systems",
+        "ROS",
         "ROS 2",
-        "Gazebo",
-        "PyTorch",
-        "SLAM"
+        "RGBD-SLAM",
+        "Power Electronics",
+        "Avionics"
       ],
-      "detailTitle": "Master’s Thesis – RL Navigation for M4",
-      "detailMeta": "Visiting Student Researcher | 03.2024 – 09.2024",
-      "overview": "Deployed PPO‑based joint‑state control on a 12‑DOF robot, integrating sensor fusion and adaptive gait selection that reduced cost of transport by 23 % versus baseline.",
+      "detailTitle": "AI & Robotics Research Engineer",
+      "detailMeta": "01.2025 – 07.2025",
+      "externalLink": {
+          "url": "https://youtu.be/fUbD9HD4Fro?si=tCiP0us5iWWbCwAL",
+          "label": "CAST Laboratories",
+          "type": "youtube"
+      },
+      "overview": "To follow-up on my Master's thesis at Caltech in the Center of Autonomous Systems & Technologies (CAST), I designed a new generation of multimodal M4 drones. These robots are made of up to 12 DOFs, allowing them to adopt optimal configurations to pass obstacles in complex environments. As research prototypes, these robots are often hard to maintain and poor knowledge transfer usually prevents future research to be easily integrated and tested. My task was therefore to focus on modularity and integration robotusness of both onboard hardware and software stacks, turning the new platform into a modular testing bed for all future research.",
       "subprojects": [
         {
-          "title": "Training Pipeline",
-          "description": "Built simulation‑to‑real transfer workflow with domain randomisation and curriculum learning.",
+          "title": "Design",
+          "description": "Defined the hardware architecture of the robot including power management, internal communication (USB, I2C, I2S, UART, PWM) and telemetry (2.4 GHz). Built a modular and dockerized ROS-based software for manual control and autonomous navigation. Also made custom interface boards for cable management purposes and system modularity.",
           "tags": [
-            "PyTorch",
-            "Domain Randomisation",
-            "PPO"
+            "Systems Engineering",
+            "ROS",
+            "RGBD-SLAM",
+            "Path-Planning",
+            "Obstacle Avoidance",
+            "Power Electronics",
+            "Sensors",
+            "Communication Protocols",
+            "Low-Level Control",
+            "FSM"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1szXUV3EqjeahIR7fCU4H3W6LRiDpdwGp&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1szXUV3EqjeahIR7fCU4H3W6LRiDpdwGp&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1tFwHw0LSCLX5fYkgXuFoqekN0p7V7N1g&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1tFwHw0LSCLX5fYkgXuFoqekN0p7V7N1g&usp=drive_copy"
+            }
           ]
         },
         {
-          "title": "Navigation Stack Integration",
-          "description": "Integrated RL controller into ROS 2 Nav2 framework with behaviour‑tree mission logic.",
+          "title": "Integration & Testing",
+          "description": "Defined testing plans. Conducted hardware-in-the-loop unit tests while integrating the system. Finally, tested the full system in the laboratory's arena.",
           "tags": [
-            "ROS 2 Nav2",
-            "Behaviour Trees"
+            "Lab Equipment",
+            "Debugging",
+            "Hardware-in-the-Loop Testing",
+            "Remote Control & Monitoring"
+          ],
+          "media": [
+          {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=16Xfg3KqToi7KhuwI5f4c7rumlECr_37C&usp=drive_copyg",
+              "thumbnail": "https://drive.google.com/open?id=16Xfg3KqToi7KhuwI5f4c7rumlECr_37C&usp=drive_copyg"
+          },
+          {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1Y9emweb5cF3TIEYTVYXN33ZmbBt0V2I6&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1Y9emweb5cF3TIEYTVYXN33ZmbBt0V2I6&usp=drive_copy"
+          },
+          {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=17ARGyMavVOAmgvyzPgJHkHK_YJpBZiu2&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=17ARGyMavVOAmgvyzPgJHkHK_YJpBZiu2&usp=drive_copy"
+          },
+          {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1wXX029aPkX6CwPhNxoBP_5_ASqHRqzBL/preview",
+              "thumbnail": "https://drive.google.com/open?id=1XNBaHyOl57WKHHf2fyEpBGVlfxDYyMeh&usp=drive_copy"
+          },
+          {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1hFR1_TKKs9P-dwGBW6DHSYbLq3AV4dP1/preview",
+              "thumbnail": "https://drive.google.com/open?id=13dyQc_36MgWBNATC5d-O-JtwKplT4QZ5&usp=drive_copy"
+          }
+        ]
+        },
+        {
+          "title": "Operations & Deployment",
+          "description": "Validated the robot in real world conditions and under harsh winds with the drone's pilot in front of stakeholders. Handed-over the system to the research team through documentation and training sessions to ensure good knowledge transfer and support of future projects. ",
+          "tags": [
+            "System Deployment",
+            "Stakeholder Engagement",
+            "Documentation",
+            "Operational Training"
+          ],
+          "media": [
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1Rz9Y5XRN0IEpO5NQv5Fzj65L6W7Ngr_X/preview",
+              "thumbnail": "https://drive.google.com/open?id=1bqRY0NQJZEj2Fz6XAUgdmquoeVWwEOLl&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1cvnoiQ8kFtyZ8mRxGgYnxBcYB_r3dqHq/preview",
+              "thumbnail": "https://drive.google.com/open?id=1wTpyEeEb3e2pPRMdPOdSrJlp5Luz2rhO&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=18GVycpVZHO04o3DypwZkBRG5oEPTs4kR&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=18GVycpVZHO04o3DypwZkBRG5oEPTs4kR&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1xHwCmPg7XRFTfjxpcvyG6vvReGtKFKQ3&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1xHwCmPg7XRFTfjxpcvyG6vvReGtKFKQ3&usp=drive_copy"
+            },
+            { 
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1UAHW4vtPCKfxT_uOqfF3PlxWY2-IsohX/preview",
+              "thumbnail": "https://drive.google.com/open?id=1o0OZQN10HDff_CoQwzeXqWMlE2W1WRZ6&usp=drive_copy"
+            }
+          ]
+        },
+        {
+          "title": "Support & Maintenance",
+          "description": "In parallel to the design of the new M4, I was also tasked with upgrading the locomotion software of the heavier M4 Hercules version to use external encoders for PID-based speed control. I also reviewed failure modes and implemented new safety features to ensure system robustness.",
+          "tags": [
+            "ROS 2",
+            "Hardware Integration",
+            "Signal Processing",
+            "PID Control",
+            "Locomotion",
+            "Quality Control"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=17K1RWbk-qPJJVWOdBCg6B0LzZF6O8uep&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=17K1RWbk-qPJJVWOdBCg6B0LzZF6O8uep&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1ZU7-QY1P0ReYPGUiyTfArwhaZTaty2T9&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1ZU7-QY1P0ReYPGUiyTfArwhaZTaty2T9&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1Y_q7Nf7QdwwNu-edXtEfWgXRm3uIcINc&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1Y_q7Nf7QdwwNu-edXtEfWgXRm3uIcINc&usp=drive_copy"
+            }
           ]
         }
       ]
     },
     {
-      "id": "caltech_m4_electronics",
+      "id": "caltech_rl_planner",
       "category": "technical",
-      "title": "M4 Drone Electronics & Autonomy",
-      "icon": "🤖",
-      "image": "images/Caltech_m4_davinci.jpg",
-      "headerImage": "images/caltech_2025/flight_2.png",
+      "title": "Reinforcement‑Learning Locomotion",
+      "icon": "🧠",
+      "image": "https://drive.google.com/open?id=1OCFedmkoeajcz8colTAKX3PjSLn4i0l1&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1ZWpIbz5XcWa0CdWPsRuOHR24DdL6cSJ4&usp=drive_copy",
       "company": "Caltech CAST",
-      "year": "2025",
-      "description": "Research‑engineer role developing avionics, perception and autonomy for a heavy‑payload multimodal drone.",
+      "companyLogo": "https://drive.google.com/open?id=1Px_D1FDxwUtwCmtKL7M_BEN9y-hsvKJX&usp=drive_copy",
+      "year": "2024",
+      "description": "Master's-thesis work training a Reinforcement-Learning locomotion controller for a 12 DOF multimodal drone, delivering energy-aware autonomous navigation over rough terrain.",
       "tags": [
-        "Embedded Systems",
-        "C++",
-        "Power Electronics",
+        "Reinforcement Learning",
+        "ROS",
+        "Gazebo",
         "SLAM",
-        "ROS 2"
+        "Perception"
       ],
-      "detailTitle": "AI & Robotics Research Engineer – M4",
-      "detailMeta": "01.2025 – 07.2025",
-      "overview": "Designed a mixed‑criticality onboard network, upgraded actuation hardware for a 40 kg platform, and led SLAM research for joint state estimation.",
+      "detailTitle": "Master's Thesis",
+      "detailMeta": "03.2024 - 09.2024",
+      "overview": "For my Master's thesis work, I trained a PPO-based joint-state controller for a 12-DOF M4 robot. The purpose of this research was to autonomous detect bridge-like structure and reduce its cost of transport of the M4 while passing underneath them compared to threshold-based methods.",
+      "technicalDoc": {
+          "url": "https://drive.google.com/file/d/1o5QR46i9y-IFg0FKPBC_jDCImJs503Cc/view?usp=sharing",
+          "label": "Thesis Report",
+          "type": "gdrive"
+      },
+      "externalLink": {
+          "url": "https://youtube.com/playlist?list=PLMZeFm7Mbwoal_8OIXM4vTLXomBDHfLX_&si=RWcvv0dx_cbq0s-D",
+          "label": "Training Videos"
+      },
       "subprojects": [
         {
-          "title": "Avionics Network",
-          "description": "Architected CAN FD + Ethernet TSN bus with STM32 co‑processors and NVIDIA Jetson edge compute.",
+          "title": "Baseline Simulation Environment",
+          "description": "Built a Gazebo simulation environment with realistic terrains to implement the baseline strategy. Integrated the M4 simulated model with RGBD camera feed and actuator feedback to test SLAM and Plath Planning packages for autonomous navigation. Built on top of ROS architecture to merge RGBD-reconstructed point cloud planes and determine the elevation of frontal bridge structures for autonomous shape transition.",
           "tags": [
-            "CAN FD",
-            "Ethernet TSN",
-            "STM32",
-            "Jetson"
+            "ROS",
+            "Gazebo Simulation",
+            "SLAM",
+            "Path Planning",
+            "Point Cloud Processing"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1izjCabiNGK13broKwXx8RTj3Ht7IZiMr&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1izjCabiNGK13broKwXx8RTj3Ht7IZiMr&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1ujsTPQ9YzYyTHeG3lGNjXK4ZZVuRVppg/preview",
+              "thumbnail": "https://drive.google.com/open?id=1QWendeDDM7caxGOQb_nnamsPAkRCp-yo&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1UHmpFiE3PoQpT4an0ZSKs5wo21yz7fuB&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1UHmpFiE3PoQpT4an0ZSKs5wo21yz7fuB&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=10CQpiJIY90OYmFWuXV1C8Kt_wS1mbz1S&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=10CQpiJIY90OYmFWuXV1C8Kt_wS1mbz1S&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1JjHxTA8mf9xDC3BkTC1mXwAUf3OzhPZ_&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1JjHxTA8mf9xDC3BkTC1mXwAUf3OzhPZ_&usp=drive_copy"
+            }
           ]
         },
         {
-          "title": "SLAM & Perception",
-          "description": "Benchmarked VIO, LiDAR‑SLAM and visual‑place recognition pipelines for onboard compute.",
+          "title": "RL Training Pipeline",
+          "description": "Built an NVIDIA IsaacLab framework to train the PPO-based control policy with domain randomisation. After a first introduction to RL training and several training attempts of the desired policy, successfully trained a Resnet18-FC model to control the M4 robot in simulation. The model was trained with dual RGBD feed (frontal and rear) as well as joint states inputs, ultimately allowing the M4 to autonomously detect bridge-like structures and adapt its locomotion strategy while maintaining stability and energy efficiency.",
           "tags": [
-            "LiDAR‑SLAM",
-            "VIO",
-            "OpenCV"
+            "Reinforcement Learning",
+            "IsaacLab",
+            "Domain Randomisation",
+            "Hyperparameter Tuning"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1_-g-4a75f8AAZVKAWtO2fJ2DaS2GXyjC&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1_-g-4a75f8AAZVKAWtO2fJ2DaS2GXyjC&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1XBsW46vw_z-y8RbSxqD9R5FHcrdw-L9k/preview",
+              "thumbnail": "https://drive.google.com/open?id=174mCPGX-48rPNuR6Iy5nvqamO1B8M-zu&usp=drive_copy"
+            }
+          ]
+        },
+        {
+          "title": "Results",
+          "description": "Exported the Resnet18-FC model into Gazebo for performance comparison. Validated the controller's performance in Gazebo and showed that while standard methods perform better with little contextual information, RL shows promissing results for more complex systems leveraging added sensor fusion.",
+          "tags": [
+            "Sim-to-Sim"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1leE0-xV-m91PjNlzH9zT17ChPvuvW4VQ&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1leE0-xV-m91PjNlzH9zT17ChPvuvW4VQ&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1fTaIwnKa0vom0dZE3ec4w5Mxv8o1A38v/preview",
+              "thumbnail": "https://drive.google.com/open?id=1bf2xToVtFAbe3iB71NBME1-3YdZL4--l&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/1kLaTSwIJOezVpKvLISBbpQKiE7uDC4cK/preview",
+              "thumbnail": "https://drive.google.com/open?id=1qcq48nQ1bnw4v1Hmb0wE-XeHQ3PCTG6N&usp=drive_copy"
+            }
           ]
         }
       ]
@@ -85,48 +282,353 @@
     {
       "id": "anymal_universal_tester",
       "category": "technical",
-      "title": "ANYmal Universal Tester PCB",
+      "title": "Electronics Qualiy Control",
       "icon": "🛠️",
-      "image": "images/anymal.jpg",
-      "headerImage": "images/anybotics/test.jpg",
+      "image": "https://drive.google.com/open?id=1aCp1FWS5tFAjTfRSJYjpBUTLwJbu0w-l&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1vE_exxheDxrWlysX_1CtMxvZMASlD5Ps&usp=drive_copy",
       "company": "ANYbotics",
+      "companyLogo": "https://drive.google.com/open?id=1fAeZUkCBzIAF0d3F_j4MHgwCcsOVfVf_&usp=drive_copy",
       "year": "2023‑2024",
-      "description": "Development of a plug‑and‑play tester PCB automating quality‑control procedures for ANYmal sub‑assemblies.",
+      "description": "Development of a plug‑and‑play tester PCB automating quality‑control procedures for ANYmal robot sub‑assemblies.",
       "tags": [
         "PCB Design",
-        "Python Automation",
-        "Quality Control"
+        "Quality Control",
+        "Process Automation"
       ],
-      "detailTitle": "Electrical Engineer Intern – Universal Tester",
+      "detailTitle": "Electrical Engineer Intern",
       "detailMeta": "09.2023 – 02.2024",
-      "overview": "Consolidated legacy testers into a modular six‑layer board with wireless pogo‑pin fixtures, shortening set‑up time by 60 %.",
+      "overview": "For my Master's internship, I joined the R&D team at ANYbotics. Working on the ANYmal-D robot testing equipment, I was tasked with making the hardware testing equipment of the robot more unified. During that time, I developed a unified testing PCB, integrating the measurement circuits necessary to all of the current and future tester PCBs of the ANYmal robots. This board was meant to be used as a robust plug-&-play system for future testing applications.",
       "subprojects": [
         {
           "title": "Tester PCB Design",
-          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "description": "Unifyied hardware testing procotols and automated their generation. Reviewied the company's hardware testing methods and needs to define a new hardware testing architecture: a common 6-layer 'Universal Tester' to be used as the standard for voltage and current measurement to all future testers + dedicated interface boards connecting the measurements channels of the Universal Tester to the different boards under test. Designed & tested the Universal Tester PCB. Updated the ANYmal-D PDB tester to match the new testing architecture.",
           "tags": [
+            "PCB Design",
+            "Fast Prototyping",
+            "Lab Equipment",
             "KiCad",
-            "ADC",
-            "Isolation",
-            "DFM"
+            "ADC / DAC",
+            "Power Distribution",
+            "Voltage Protection",
+            "Interface Management",
+            "Process Automation",
+            "Quality Control",
+            "Testing Plan",
+            "C++",
+            "Python"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1nkddvMrEJYWGsvyFE089FQV4wgJcxOhP&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1nkddvMrEJYWGsvyFE089FQV4wgJcxOhP&usp=drive_copy",
+              "margin": "3rem"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1cdTvb9Mn-kN4sWgH2tiXD66XA9HvSlkx&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1cdTvb9Mn-kN4sWgH2tiXD66XA9HvSlkx&usp=drive_copy",
+              "margin": "3rem"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1hgjn9y-Ho-MA9vJYcB7fwpaHx-jO2eib&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1hgjn9y-Ho-MA9vJYcB7fwpaHx-jO2eib&usp=drive_copy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xplore_drone_avionics",
+      "category": "technical",
+      "title": "Advisor, Avionics Engineer & Pilot",
+      "icon": "🚁",
+      "image": "https://drive.google.com/open?id=1VZyakHfUt3suJcfE700YEMSrtsNJ78Qu&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1uhZX0HJKKs3oCZKUfUn45G53yBWhr9yV&usp=drive_copy",
+      "company": "EPFL Xplore",
+      "companyLogo": "https://drive.google.com/open?id=1uhrjtR7PrHW4cPHx5r_rSxkhvoTmE5ww&usp=drive_copy",
+      "missionPatch": "https://drive.google.com/open?id=19nsZKnYTeekdyXy2QRYcytILN2swD2bN&usp=drive_copy",
+      "year": "2022-2023",
+      "description": "Design of the avionics systems of Xplore's first drone for the ERC 2023 competition. Providing support to the newly appointed management team.",
+      "tags": [
+        "Avionics",
+        "Embedded C",
+        "Telemetry",
+        "Safety Protocols",
+        "Management Advisor"
+      ],
+      "detailTitle": "UAV Avionics Engineer",
+      "detailMeta": "09.2022 – 09.2023",
+      "externalLink": {
+        "url": "https://youtu.be/IFt732b9MKc?si=wP0JIDSJV2Obl5Pn",
+        "label": "EPFL Xplore 2023",
+        "type": "youtube"
+      },
+      "technicalDoc": {
+        "url": "https://drive.google.com/file/d/1-GwEAcSUscmzZzL527W5FqwsUIzIF41o/view?usp=drive_link",
+        "label": "Technical Report",
+        "type": "gdrive"
+      },
+      "overview": "EPFL Xplore is a student-led project that I co-founded in 2020 to give students hands-on experience in a number of disciplines such as systems engineering, robotics, mechanical engineering, life sciences and optics.<br>In 2023, I stepped away from management functions to let the new generation of students take the lead of the project and stayed as advisor in the management team. I took an R&D project role as UAV Avionics Engineer for the newly lanched drone subproject and was in charge of the design, manufacturing, testing and integration of the avionics board of the drone. My task also included programming the flight controller, the sensor data acquisition, the telemetry and the safety protocols on the board. Finally, I became the operator of the drone at the ERC 2023 competition.",
+      "subprojects": [
+        {
+          "title": "ERC 2023 Competition",
+          "description": "In 2023, the team placed 3rd out of 54 teams at the ERC competition in Poland. It was also awarded the price of Best Maintenance for technical excellence in operating autonomously on a control panel thanks to the rover's robotic arm. The team was also recognized for having developed its drone in house, down to its electronics boards and the software running on them.",
+          "tags": [
+            "3rd Place",
+            "Best Manipulation Award"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1RDx1T8o-MnJPqrqe1F1zKLYLJKpRyIAL&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1RDx1T8o-MnJPqrqe1F1zKLYLJKpRyIAL&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=18evgSwxo4O29pD0U-E5BFMCz-dgb-XiH&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=18evgSwxo4O29pD0U-E5BFMCz-dgb-XiH&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1tLIU9-1q_bLTPUNt5RV5Yi8hhXald9Du&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1tLIU9-1q_bLTPUNt5RV5Yi8hhXald9Du&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1rhgvCLIYuYmBurTxDHOQqo8hMBoUgRuC&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1rhgvCLIYuYmBurTxDHOQqo8hMBoUgRuC&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1gl1vQJAxitDUwZXSonH_u6Bc5lmrjnzB&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1gl1vQJAxitDUwZXSonH_u6Bc5lmrjnzB&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1it5Wyb3hECn6fyOyzGC2M_nS6kC-gPD2&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1it5Wyb3hECn6fyOyzGC2M_nS6kC-gPD2&usp=drive_copy"
+            }
           ]
         },
         {
-          "title": "Wireless Interface Module",
-          "description": "Introduced spring‑loaded pogo‑pin harnesses and alignment jigs to enable contactless coupling with DUTs of varying form factors.",
+          "title": "Avionics Board Design",
+          "description": "Laid out a 4‑layer avionics PCB integrating computation and sensing capabilities (IMUs, barometer, ToF, GPS). Assembled and soldered the board in lab conditions. Unit-tested the prototype to ensure the reliability of the sensors and the communication protocols before moving on to the final version.",
           "tags": [
-            "Pogo Pins",
-            "3D Printing",
-            "Fixture Design"
+            "Embedded Systems",
+            "PCB Design & Manufacturing",
+            "Power Electronics",
+            "Sensor Data Acquisition",
+            "Kalman Filtering",
+            "State Estimation",
+            "Flight Control"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1xp6wQXUCEfigUlDKR1EhK7VFFeDKOtSt&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1xp6wQXUCEfigUlDKR1EhK7VFFeDKOtSt&usp=drive_copy",
+              "margin": "2rem"
+            }
           ]
         },
         {
-          "title": "Test‑Protocol Automation",
-          "description": "Generated YAML‑based test templates and Python scripts for repeatable, version‑controlled execution and logging.",
+          "title": "Avionics Board Optimization",
+          "description": "Updated the prototype to the final version matching the design specifications of the drone. Unit-tested the board to ensure requirements compliance and then integrated and tested it with the rest of the system: Telemetry, ESCs, Actuators, PDB, Jetson TX2.",
           "tags": [
-            "PySerial",
-            "PyTest",
-            "CI/CD"
+            "PCB Design & Manufacturing",
+            "Optimization",
+            "System Integration"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1yBSdFi89_4NspdltsANI4A8oWEacrZS8&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1yBSdFi89_4NspdltsANI4A8oWEacrZS8&usp=drive_copy",
+              "margin": "1rem"
+            }
+          ]
+        },
+        {
+          "title": "Jetson TX2 Custom Interface Board",
+          "description": "Built upon an open-source Jetson interface board design to add a impedence-controlled HDMI port and SD card interface. This board was designed to connect the Jetson TX2 module to the avionics board and to the drone's camera for autonomous flight.",
+          "tags": [
+            "PCB Design & Manufacturing",
+            "Impedent Control",
+            "Communication Protocols"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=15DaO9k5tag9l7xHMV_slEXJOats4xgz1&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=15DaO9k5tag9l7xHMV_slEXJOats4xgz1&usp=drive_copy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xplore_leadership",
+      "category": "management",
+      "title": "President",
+      "icon": "📈",
+      "image": "https://drive.google.com/open?id=1dgTDqO2LKpIjgXvDXkycQrurBHWdeD8X&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1AMXUBo3Ti2l_yYX8XdHf_OZ1rKdVV6UZ&usp=drive_copy",
+      "company": "EPFL Xplore",
+      "companyLogo": "https://drive.google.com/open?id=1uhrjtR7PrHW4cPHx5r_rSxkhvoTmE5ww&usp=drive_copy",
+      "missionPatch": "https://drive.google.com/open?id=1Ago-aGQw1Y-gF0atFfw4ykFajDSN9bib&usp=drive_copy",
+      "year": "2021-2022",
+      "description": "The leadership of EPFL Xplore focused on external relations, funding (CHF150k), long-term strategy and management of an 80-member organisation.",
+      "tags": [
+        "Project Management",
+        "Fund-Raising",
+        "Stakeholder Engagement",
+        "Logistics",
+        "Communication Strategy",
+        "External Relations",
+        "Human Resources"
+      ],
+      "detailTitle": "President",
+      "detailMeta": "09.2021 – 09.2022",
+      "externalLink": {
+        "url": "https://youtu.be/UUAIprJ8epM?si=wBqhvm8ox-iat2KY",
+        "label": "EPFL Xplore 2022",
+        "type": "youtube"
+      },
+      "technicalDoc": {
+          "url": "https://drive.google.com/file/d/1t3hkQWStCdlKliU1C5fvoSFvqZ2UvlrI/view?usp=drive_link",
+          "label": "Technical Report",
+          "type": "gdrive"
+      },
+      "overview": "As President of EPFL Xplore, I served both internal and external roles. Internally, I supervised the Technical Leadership team to ensure that the project met the yearly objectives set for technical performances. I also took HR responsibilities to heart, from recruiting new students to ensuring that each member was heard and included in the decision making process in the project. Externally, I defined the project's educational & research plan, led its outreach & communication strategy through events and social media presence and expanded external partnerships.",
+      "subprojects": [
+        {
+          "title": "ERC 2022 Competition",
+          "description": "In 2022, the project achieved its highest ranking yet at ERC 2022 by placing 2nd out of 64 teams and received the Best Navigation Award for outstanding autonomous navigation by night under rainy conditions.",
+          "tags": [
+            "2nd Place",
+            "Best Navigation Award"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=18paSWRC-ema84DyDruDbVDz6b2iUXxMH&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=18paSWRC-ema84DyDruDbVDz6b2iUXxMH&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1XhXIdWtdmMLnquVWAdZVRtVixjmrfWIT&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1XhXIdWtdmMLnquVWAdZVRtVixjmrfWIT&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=13rI5cG0L5sk3C2RPsBvteRkV3prfkmSe&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=13rI5cG0L5sk3C2RPsBvteRkV3prfkmSe&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=14DpKyfZth3PKMeB194G9WvmczFVoY508&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=14DpKyfZth3PKMeB194G9WvmczFVoY508&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1Tf9FoKLoEIG2i27okmbl597Qw5RGlJ-7&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1Tf9FoKLoEIG2i27okmbl597Qw5RGlJ-7&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1-uZCscHR86DhmEVBd-VTrqzgyX8O3wBs&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1-uZCscHR86DhmEVBd-VTrqzgyX8O3wBs&usp=drive_copy"
+            },                 
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1qcvgycnjaYOOW8YQBr8u7vZHNeFbQxem&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1qcvgycnjaYOOW8YQBr8u7vZHNeFbQxem&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1XrfdX0g7fZ4f-7cSX8BtzSNTE9FINVJd&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1XrfdX0g7fZ4f-7cSX8BtzSNTE9FINVJd&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=16OCepPenbQPaLz4vxso0QZfkL-5Uj4U7&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=16OCepPenbQPaLz4vxso0QZfkL-5Uj4U7&usp=drive_copy"
+            }
+          ]
+        },
+        {
+          "title": "Fund-Raising & Partnerships",
+          "description": "Raised CHF150k in funding from industry partners (Maxon, ELCA, APCO Technologies, Logitech, and more) and EPFL to support the project. Collaborated with elementary schools to promote space exploration, science and robotics through workshops at an early age.",
+          "tags": [
+            "Fund-Raising",
+            "Partnerships",
+            "Sponsorships"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1AMXUBo3Ti2l_yYX8XdHf_OZ1rKdVV6UZ&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1AMXUBo3Ti2l_yYX8XdHf_OZ1rKdVV6UZ&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1weUVEvaZu9mSiykT1uexsp13Y2nOpbby&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1weUVEvaZu9mSiykT1uexsp13Y2nOpbby&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1Jxb33nCsM2WtcO_kqI44wNwZEpkVOBrZ&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1Jxb33nCsM2WtcO_kqI44wNwZEpkVOBrZ&usp=drive_copy"
+            }
+          ]
+        },
+        {
+          "title": "Events & Outreach",
+          "description": "Organized and participated in events to promote the project and its activities. This included: Unveiling of the Astra rover at the Rolex Learning Center, Swatch x Omega private event for the unveiling of their Moon Swatch collection, collaboration with NCCR Robotics for the Swiss Robotics Days, participation in the EPFL Alumni Garden Party, EPFL Open Days and EPFL Discovery Learning Lab Opening Ceremony. Also built a Communications team to focus on audience engagement with new consistent content types (Instagram Reels campaigns, Youtube and Instagram live streaming of events, team introductions posts, sponsoring contents).",
+          "tags": [
+            "Public Relations",
+            "Partnerships",
+            "Event Management",
+            "Outreach"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1WzEBV0mEvqNjYCwQWe6qiq2enT9OpEoy&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1WzEBV0mEvqNjYCwQWe6qiq2enT9OpEoy&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://www.youtube.com/embed/-OaPcngnmV0?si=ZCdw3y3whWe6MF7l",
+              "thumbnail": "https://drive.google.com/open?id=1AMXUBo3Ti2l_yYX8XdHf_OZ1rKdVV6UZ&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://drive.google.com/file/d/10hvObmVhRUbYbbK6JhycEBtKfmfSlYRa/preview",
+              "thumbnail": "https://drive.google.com/open?id=1nvCE01uotlugRGNzvFXsCmAuRLrDT27M&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1EtrObagvWiCNRuek2_nAOgLvG5lNm4WW&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1EtrObagvWiCNRuek2_nAOgLvG5lNm4WW&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1ZB1g7RNcGYHN3qtm79UAXWIHDDsyi64B&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1ZB1g7RNcGYHN3qtm79UAXWIHDDsyi64B&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1bGpQAzbeMFf03WtjcCWki6ppJHSfZ7OZ&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1bGpQAzbeMFf03WtjcCWki6ppJHSfZ7OZ&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1tfZVXs8u0cmFNPEHMidvuYTt5MZmul57&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1tfZVXs8u0cmFNPEHMidvuYTt5MZmul57&usp=drive_copy"
+            }
           ]
         }
       ]
@@ -134,145 +636,238 @@
     {
       "id": "xplore_tech_mgmt",
       "category": "management",
-      "title": "Technical Management & Project Planning",
+      "title": "Founder, Vice-President & Project Manager",
       "icon": "🗂️",
-      "image": "images/xplore_argos.jpg",
-      "headerImage": "images/xplore_2021/podium_2.jpg",
+      "image": "https://drive.google.com/open?id=1yXQoGxPmnMK2rZx30PmDJCfgixgCHdT7&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1DTfBNbFiATqDJelJgCFzQq84t6TBGkrL&usp=drive_copy",
       "company": "EPFL Xplore",
-      "year": "2021",
-      "description": "Vice President & Project Manager overseeing 50 + engineers, milestones and risk management.",
-      "tags": [
+      "companyLogo": "https://drive.google.com/open?id=1uhrjtR7PrHW4cPHx5r_rSxkhvoTmE5ww&usp=drive_copy",
+      "missionPatch": "https://drive.google.com/open?id=1nRctScN20bS6nDygO1pS5c9wuJ_eLq9y&usp=drive_copy",
+      "year": "2020-2021",
+      "description": "Founder of a space robotics initiaive aiming at providing hands-on practive to students most fields of engineering. Overseing 50+ engineers, timelines, reviews, risks and budgets.",
+      "tags": [     
         "Project Management",
         "Risk Analysis",
-        "Budgeting"
+        "Budget Allocation",
+        "Systems Engineering",
+        "Stakeholder Engagement"
       ],
-      "detailTitle": "Vice President & PM",
+      "detailTitle": "Founder, Vice-President & Project Manager",
       "detailMeta": "09.2020 – 09.2021",
-      "overview": "Organised concurrent‑engineering reviews with NASA/ESA experts and secured early ERC podium finish.",
+      "externalLink": {
+        "url": "https://youtu.be/zbsS0uqnrJQ?si=PARimYWfWAdj0Apt",
+        "label": "EPFL Xplore 2021",
+        "type": "youtube"
+      },
+      "technicalDoc": {
+          "url": "https://drive.google.com/file/d/165wsOs9JcIiWqvbXVR4kGWzYjv3-DkRP/view?usp=drive_link",
+          "label": "Technical Report",
+          "type": "gdrive"
+      },
+      "overview": "In 2020, along with 3 co-founders, we realized that the EPFL ecosystem was missing hands-on practical projects to teach us how to build systems from the ground up and how to manage them. EPFL Xplore was founded with that very intent, to build an initiative allowing students to learn and combine sciences, engineering, and management in a multidisciplinary environment. As students passionate by space and robotics, we dediced to found the first robotics project at EPFL. One year later, the team secured an early podium finish among 58 teams at the European Rover Challenge (ERC) 2021 and received excellence awards for both Science and Probing missions.",
       "subprojects": [
         {
           "title": "Systems Engineering",
-          "description": "Defined system decomposition, interfaces and test plan for the first Xplore Mars‑analogue rover.",
+          "description": "In the first 6 months of the project, as we were building the project proposal documents for EPFL, I was in charge of the rover system decomposition, its interfaces and the manufacturing plan. This allowed us to build credibility with EPFL as well as potential sponsors and partners. The project was then approved and we were able to start the recruitment process and launch the first phase of the project.",
           "tags": [
             "Systems Engineering",
-            "Requirements",
-            "Testing Plan"
+            "Requirements Definition",
+            "Manufacturing Plan",
+            "Testing Plan",
+            "Recruitment"
           ],
-          "image": "images/xplore_2023/project_jetson.png"
-        }
-      ]
-    },
-    {
-      "id": "xplore_leadership",
-      "category": "management",
-      "title": "Strategic Leadership & Partnerships",
-      "icon": "📈",
-      "image": "images/xplore_astra.jpg",
-      "headerImage": "images/xplore_2022/Argos_unveiling_1.jpg",
-      "company": "EPFL Xplore",
-      "year": "2022",
-      "description": "Presidency focused on external relations, funding (CHF 150 k) and long‑term strategy for an 80‑member organisation.",
-      "tags": [
-        "Leadership",
-        "Stakeholder Engagement",
-        "Fund‑Raising"
-      ],
-      "detailTitle": "President",
-      "detailMeta": "09.2021 – 09.2022",
-      "overview": "Achieved ERC 2022 1st Prize in Navigation and expanded industrial sponsorship portfolio.",
-      "subprojects": []
-    },
-    {
-      "id": "xplore_drone_avionics",
-      "category": "technical",
-      "title": "Drone Flight Controller & Avionics",
-      "icon": "🚁",
-      "image": "images/xplore_kerby_0.jpg",
-      "headerImage": "images/xplore_2023/podium.jpg",
-      "company": "EPFL Xplore",
-      "year": "2023",
-      "description": "Designed and piloted the first Xplore UAV flight‑controller and sensor board for ERC 2023 drone operations.",
-      "tags": [
-        "Avionics",
-        "Embedded C",
-        "Telemetry",
-        "Safety Protocols"
-      ],
-      "detailTitle": "UAV Avionics Engineer",
-      "detailMeta": "09.2022 – 09.2023",
-      "overview": "Implemented sensor fusion, motor control and safety FSM; operated the drone during ERC 2023 competition.",
-      "subprojects": [
-        {
-          "title": "Tester PCB Design",
-          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
-          "tags": [
-            "KiCad",
-            "ADC",
-            "Isolation",
-            "DFM"
-          ],
-          "image": "images/xplore_2023/project_eagle_2.png"
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1WjmpcWLJ5_oqZ9YmUzfOppwIZHNRD6JL&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1WjmpcWLJ5_oqZ9YmUzfOppwIZHNRD6JL&usp=drive_copy"
+            }
+          ]
         },
         {
-          "title": "Tester PCB Design",
-          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "title": "Vice-President & Project Manager",
+          "description": "As Vice-President and Project Manager, I directed multidiscipline technical teams, defined project milestones following NASA's Systems Engineering V-Model, and supervised the testing campaigns. I allocated both financial and engineering resources, oversaw risk and supply-chain management and convened technical reviews with experts from NASA, ESA, the industry and partners.",
           "tags": [
-            "KiCad",
-            "ADC",
-            "Isolation",
-            "DFM"
+            "Timeline Management",
+            "Risk Management",
+            "Supply-Chain Management",
+            "Budget Allocation",
+            "Technical Review",
+            "Human Resources",
+            "Stakeholder Engagement"
           ],
-          "image": "images/xplore_2023/project_eagle_1.png"
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1HUyQwYBQ6bFj-rrY7r3uc9bJU60THimK&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1HUyQwYBQ6bFj-rrY7r3uc9bJU60THimK&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://www.youtube.com/embed/YOMgkcx0Zkw?si=THxfLGoynZnwjMOU",
+              "thumbnail": "https://drive.google.com/open?id=1cKr9cX_ZV0WkKh5O1xrUUE2cbdaYLry6&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1K4OrivEWb1SvYSfSA8-ln35Oqv_IuOfJ&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1K4OrivEWb1SvYSfSA8-ln35Oqv_IuOfJ&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1fdemJuTHZ2IcV5oAsuMIjlw2rXERBJFN&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1fdemJuTHZ2IcV5oAsuMIjlw2rXERBJFN&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1tR_C4gVDZ7Wz2_xOn9DHL9gS0ktL1kT4&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1tR_C4gVDZ7Wz2_xOn9DHL9gS0ktL1kT4&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1NA2lu0Bv_rAuiW5pl1rnQRw1D-zP18je&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1NA2lu0Bv_rAuiW5pl1rnQRw1D-zP18je&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1CKTFbXmgUzXhbD80YW2GlX9sNSvzbdqP&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1CKTFbXmgUzXhbD80YW2GlX9sNSvzbdqP&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1xousyLwd0g2WiCZazSFqyUobtBEoAhVV&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1xousyLwd0g2WiCZazSFqyUobtBEoAhVV&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1O-IM356eCfC1tjJkettpBvy7WOL3aZKM&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1O-IM356eCfC1tjJkettpBvy7WOL3aZKM&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1OqXL3Sk6xsrd8zh2E0uIE7ObR1s9cFLr&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1OqXL3Sk6xsrd8zh2E0uIE7ObR1s9cFLr&usp=drive_copy"
+            }
+          ]
         },
         {
-          "title": "Tester PCB Design",
-          "description": "Laid out a six‑layer board with precision ADC front‑ends, differential signal routing and galvanic isolation for safety.",
+          "title": "ERC 2021 Competition",
+          "description": "After only one year of development, we placed 3rd among 58 teams at ERC 2021. The team also received two excellence awards: Best Science mission and execution for the quality of its scientific report, the innovative design of its science bay, the sample collection strategy, and Best Probing for successfully driving a scientific probe into a rocky terrain.",
           "tags": [
-            "KiCad",
-            "ADC",
-            "Isolation",
-            "DFM"
+            "3rd Place",
+            "Best Science Award",
+            "Best Probing Award"
           ],
-          "image": "images/xplore_2023/project_jetson.png"
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1cxUj9mOkXdnGxXnW0SpZFqXQYBDTWnT0&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1cxUj9mOkXdnGxXnW0SpZFqXQYBDTWnT0&usp=drive_copy"
+            },
+            {
+              "type": "video",
+              "src": "https://www.youtube.com/embed/zbsS0uqnrJQ?si=nEPCN9s_Q86GEoo7",
+              "thumbnail": "https://drive.google.com/open?id=1bJxr7x3R24YwKah2X1OdBGPzgz3OYYbD&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1IBgF1tMyTM8US4B_YvRDPlKesJntRh8x&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1IBgF1tMyTM8US4B_YvRDPlKesJntRh8x&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1BSyKd-qBeGbMXiW916JYmVXFZNXMZaG3&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1BSyKd-qBeGbMXiW916JYmVXFZNXMZaG3&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1uWE8UZgZzovxlMT34EEoNldXCWEQC4Vg&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1uWE8UZgZzovxlMT34EEoNldXCWEQC4Vg&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1o2WgWgFtQDtICF8BqZq2yS_WPTtNqc4l&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1o2WgWgFtQDtICF8BqZq2yS_WPTtNqc4l&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1VjrVXByeluzm2cncE8UQXLmZEwBG6QRu&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1VjrVXByeluzm2cncE8UQXLmZEwBG6QRu&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1hiqhY0H-MQovFNbpGAQm4qcyDM1GPE3T&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1hiqhY0H-MQovFNbpGAQm4qcyDM1GPE3T&usp=drive_copy"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/open?id=1ep49W3jDGw9gUU6CNdKbGxWfbuHVbjl1&usp=drive_copy",
+              "thumbnail": "https://drive.google.com/open?id=1ep49W3jDGw9gUU6CNdKbGxWfbuHVbjl1&usp=drive_copy"
+            }
+          ]
         }
       ]
     },
     {
       "id": "rocket_team_avionics",
       "category": "technical",
-      "title": "Hybrid‑Rocket Avionics System",
+      "title": "Hybrid-Rocket Avionics System",
       "icon": "🚀",
-      "image":"images/rocket_team.jpg",
-      "headerImage": "images/xplore_2022/podium.jpg",
+      "image":"https://drive.google.com/open?id=1P-h5UiRUQbcPtXmLor6NiStbtC0JD5oA&usp=drive_copy",
+      "headerImage": "https://drive.google.com/open?id=1Qa4B-K-4ZbhoQ_l3LMNO4u8K7AVqc1Lo&usp=drive_copy",
       "company": "EPFL Rocket Team",
-      "year": "2019‑2021",
-      "description": "Real‑time data acquisition, telemetry and flight‑state sequencing for the Euroc‑winning hybrid rocket ‘Eiger’.",
+      "companyLogo": "https://drive.google.com/open?id=1nbz97uyisn5GPdaJsiniAsH_vWo0EYd3&usp=drive_copy",
+      "missionPatch": "https://drive.google.com/open?id=1YD7XF0-2O642mLojEhkG3GqLmBaKw61u&usp=drive_copy",
+      "year": "2019-2021",
+      "description": "Real-time data acquisition, telemetry and flight-state sequencing for an hybrid rocket.",
       "tags": [
         "Avionics",
         "Telemetry",
-        "Finite‑State Machine",
+        "Finite-State Machine",
         "Embedded C"
       ],
       "detailTitle": "Avionics Software Engineer",
-      "detailMeta": "04.2019 – 09.2021",
-      "overview": "Delivered UHF telemetry link and FSM triggering ignition, stage separation and recovery events, contributing to Euroc 2021 victory.",
+      "detailMeta": "04.2019 - 09.2021",
+      "technicalDoc": {
+        "url": "https://epflrocketteam.ch/fr/projets/bella-lui/",
+        "label": "Project Website",
+        "type": "url"
+      },
+      "externalLink": {
+        "url": "https://youtu.be/EKhwtzItNWw?si=g7BrkVtrpL0j2fBi",
+        "label": "Bella Lui I",
+        "type": "youtube"
+      },
+      "overview": "Within the Avionics Team, I was in charge of the avionics embedded systems software, including flight sensors data acquisition, finite state machine design and telemetry implementation. Due to covid restrictions the team was not able to go to the intended Spaceport America Cup in 2021 but went on to win the Euroc 2022 competition one year later.",
       "subprojects": [
         {
-          "title": "Telemetry Link",
-          "description": "Designed a bidirectional UHF link with CRC‑secured packets and a ground‑station GUI for live flight monitoring.",
+          "title": "Avionics Sensors",
+          "description": "Acquired onboard sensing data from IMU, barometers and RTK GPS on an STM32H7 board to estimate the rocket's states (speed, altitude, pressure, temperature). Delivered UHF telemetry link between the Ground Segment and Propulsion Systems and designed the kalman-based FSM triggering stage separation and recovery events.",
           "tags": [
-            "UHF",
-            "CRC",
-            "Qt"
-          ]
-        },
-        {
-          "title": "Finite‑State Machine",
-          "description": "C‑based FSM triggering ignition, stage separation and recovery events from sensor thresholds.",
-          "tags": [
+            "C",
+            "C++",
+            "STM32",
             "State Machine",
-            "Embedded C",
-            "Safety"
+            "Telemetry",
+            "Sensor Data Acquisition"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://drive.google.com/file/d/1JgsbKqU9sIvNso45Cml70GW55_Hc8KwB/view?usp=sharing",
+              "thumbnail": "https://drive.google.com/file/d/1JgsbKqU9sIvNso45Cml70GW55_Hc8KwB/view?usp=sharing"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/file/d/125kJT7414gl2I-2DHgPXzODGrVT-1McE/view?usp=sharing",
+              "thumbnail": "https://drive.google.com/file/d/125kJT7414gl2I-2DHgPXzODGrVT-1McE/view?usp=sharing",
+              "margin": "2rem"
+            },
+            {
+              "type": "image",
+              "src": "https://drive.google.com/file/d/1yuRdvkG3dfL55FNCfPshEuTPFlnqKJA-/view?usp=sharing",
+              "thumbnail": "https://drive.google.com/file/d/1yuRdvkG3dfL55FNCfPshEuTPFlnqKJA-/view?usp=sharing",
+              "margin": "0.5rem"
+            }
           ]
         }
       ]
