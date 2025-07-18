@@ -84,6 +84,23 @@
             color: #667eea;
         }
 
+        .nav-links a.active {
+            color: #8f95b3;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #8f95b3;
+            border-radius: 1px;
+        }
+
         /* Main Content */
         .main-content {
             margin-top: 0; /* Remove previous margin */
@@ -212,7 +229,7 @@
         }
 
         .scroll-down-arrow {
-            font-size: 3rem; /* Larger for better visibility */
+            font-size: 4rem; /* Larger for better visibility */
             animation: bounce 2s infinite;
         }
 
@@ -264,7 +281,7 @@
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduced from 350px */
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -316,48 +333,6 @@
         .project-card.management .tag {
             background: #8B5CF6;
             color: white;
-        }
-
-        /* Management category "View Details" button */
-        .project-card.management .view-details {
-            background: rgba(124, 58, 237, 0.1);
-            color: #8B5CF6;
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-card.management .view-details:hover {
-            background: #8B5CF6;
-            color: white;
-            border: 1px solid #8B5CF6;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
-        }
-
-
-        .project-card.technical .view-details {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-card.technical .view-details:hover {
-            background: #667eea;
-            color: white;
-            border: 1px solid #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
         }
 
         .category-badge {
@@ -633,10 +608,20 @@
             }
         }
 
+        @media (min-width: 769px) {
+            .project-nav-arrows {
+                display: none;
+            }
+        }
+
         .project-detail-title {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .project-detail-company {
@@ -674,6 +659,23 @@
             font-size: 1.2rem;
             font-weight: bold;
             color: #667eea;
+        }
+
+        .company-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .company-logo-small {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .project-year {
+            font-weight: bold;
         }
 
         .mission-patch {
@@ -1207,6 +1209,8 @@
 
             .project-detail-title {
                 font-size: 2rem;
+                line-height: 1.2;
+                padding: 0 1rem;
             }
 
             .project-detail-content {
@@ -1235,6 +1239,32 @@
 
             .subproject-title {
                 font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr; /* Force single column on very small screens */
+                gap: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem; /* Reduce padding on small screens */
+            }
+            
+            .content-section {
+                padding: 2rem 1rem; /* Already exists but make sure it's applied */
+            }
+
+            .project-detail-title {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 0.5rem;
             }
         }
 
@@ -1356,15 +1386,19 @@
                         }
                     </div>
                     <div class="project-meta">
-                        <span>${project.company}</span>
-                        <span>${project.year}</span>
+                        <span class="company-logo-container">
+                            ${project.companyLogo ? 
+                                `<img src="${convertGDriveToThumbnail(project.companyLogo, 'w100')}" alt="${project.company}" class="company-logo-small">` :
+                                project.company
+                            }
+                        </span>
+                        <span class="project-year">${project.year}</span>
                     </div>
                     <h3 class="project-title">${project.title}</h3>
                     <p class="project-description">${project.description}</p>
                     <div class="project-tags">
                         ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                     </div>
-                    <button class="view-details">View Details</button>
                 `;
                 
                 projectsGrid.appendChild(projectCard);
@@ -1399,6 +1433,58 @@
                 nextButton.disabled = currentIndex >= currentProjects.length - 1;
             }
         }
+
+        function updateActiveNavigation() {
+            const sections = ['home', 'projects', 'about'];
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = 'home'; // default
+            let maxVisibleArea = 0;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const sectionTop = rect.top;
+                    const sectionBottom = rect.bottom;
+                    const sectionHeight = rect.height;
+                    const viewportHeight = window.innerHeight;
+                    
+                    // Calculate visible area of the section
+                    const visibleTop = Math.max(0, Math.min(viewportHeight, sectionBottom) - Math.max(0, sectionTop));
+                    const visiblePercentage = visibleTop / Math.min(sectionHeight, viewportHeight);
+                    
+                    // Special handling for the last section (about)
+                    if (sectionId === 'about') {
+                        // If we're near the bottom of the page, consider "about" active
+                        const documentHeight = document.documentElement.scrollHeight;
+                        const windowHeight = window.innerHeight;
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        
+                        if (scrollTop + windowHeight >= documentHeight - 100) {
+                            currentSection = 'about';
+                            return;
+                        }
+                    }
+                    
+                    // For other sections, use the section that has the most visible area
+                    if (visiblePercentage > 0.3 && visibleTop > maxVisibleArea) {
+                        maxVisibleArea = visibleTop;
+                        currentSection = sectionId;
+                    }
+                }
+            });
+            
+            // Update active class on navigation links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavigation);
 
         function scrollToProjects(event) {
             event.preventDefault();
@@ -1780,6 +1866,8 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Update active state immediately on click
+                    setTimeout(updateActiveNavigation, 100);
                 }
             });
         });
@@ -1870,6 +1958,8 @@
                     typeWriter(subtitle, originalText, 30);
                 }
             }, 1000);
+
+            updateActiveNavigation();
         });
 
         // Keyboard navigation for accessibility

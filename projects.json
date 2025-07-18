@@ -3,14 +3,14 @@
     {
       "id": "caltech_m4_electronics",
       "category": "technical",
-      "title": "System Design, Testing & Operations",
+      "title": "Robotics Reseach Engineer",
       "icon": "🤖", 
       "image": "https://drive.google.com/open?id=16SaaQ3GFp9ybK1TgWgP8AcMQOTLgJPF9&usp=drive_copy",
       "headerImage": "https://drive.google.com/open?id=1tXVqEdy-QsOaOWdV618USyvRPhn9rzT4&usp=drive_copy",
       "company": "Caltech CAST",
       "companyLogo": "https://drive.google.com/open?id=1Px_D1FDxwUtwCmtKL7M_BEN9y-hsvKJX&usp=drive_copy",
       "year": "2025",
-      "description": "Development of the full hardware and software architectures for an autonomous multimodal drone operating in urban environment.",
+      "description": "System design, testing & operations of an autonomous multimodal drone operating in urban environment.",
       "tags": [
         "Systems Engineering",
         "Embedded Systems",
@@ -165,14 +165,14 @@
     {
       "id": "caltech_rl_planner",
       "category": "technical",
-      "title": "Reinforcement‑Learning Locomotion",
+      "title": "Master's Thesis",
       "icon": "🧠",
       "image": "https://drive.google.com/open?id=1OCFedmkoeajcz8colTAKX3PjSLn4i0l1&usp=drive_copy",
       "headerImage": "https://drive.google.com/open?id=1ZWpIbz5XcWa0CdWPsRuOHR24DdL6cSJ4&usp=drive_copy",
       "company": "Caltech CAST",
       "companyLogo": "https://drive.google.com/open?id=1Px_D1FDxwUtwCmtKL7M_BEN9y-hsvKJX&usp=drive_copy",
       "year": "2024",
-      "description": "Master's-thesis work training a Reinforcement-Learning locomotion controller for a 12 DOF multimodal drone, delivering energy-aware autonomous navigation over rough terrain.",
+      "description": "Training of a Reinforcement-Learning locomotion controller for a 12 DOF multimodal drone, delivering energy-aware autonomous navigation over rough terrain.",
       "tags": [
         "Reinforcement Learning",
         "ROS",
@@ -282,7 +282,7 @@
     {
       "id": "anymal_universal_tester",
       "category": "technical",
-      "title": "Electronics Qualiy Control",
+      "title": "Electrical Engineer Intern",
       "icon": "🛠️",
       "image": "https://drive.google.com/open?id=1aCp1FWS5tFAjTfRSJYjpBUTLwJbu0w-l&usp=drive_copy",
       "headerImage": "https://drive.google.com/open?id=1vE_exxheDxrWlysX_1CtMxvZMASlD5Ps&usp=drive_copy",
@@ -810,7 +810,7 @@
     {
       "id": "rocket_team_avionics",
       "category": "technical",
-      "title": "Hybrid-Rocket Avionics System",
+      "title": "Avionics Engineer",
       "icon": "🚀",
       "image":"https://drive.google.com/open?id=1P-h5UiRUQbcPtXmLor6NiStbtC0JD5oA&usp=drive_copy",
       "headerImage": "https://drive.google.com/open?id=1Qa4B-K-4ZbhoQ_l3LMNO4u8K7AVqc1Lo&usp=drive_copy",
