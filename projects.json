@@ -35,15 +35,11 @@
           "description": "Defined the hardware architecture of the robot including power management, internal communication (USB, I2C, I2S, UART, PWM) and telemetry (2.4 GHz). Built a modular and dockerized ROS-based software for manual control and autonomous navigation. Also made custom interface boards for cable management purposes and system modularity.",
           "tags": [
             "Systems Engineering",
+            "Autonomous Navigation",
             "ROS",
-            "RGBD-SLAM",
-            "Path-Planning",
-            "Obstacle Avoidance",
             "Power Electronics",
-            "Sensors",
-            "Communication Protocols",
-            "Low-Level Control",
-            "FSM"
+            "Avionics",
+            "Control"
           ],
           "media": [
             {
@@ -97,7 +93,7 @@
         },
         {
           "title": "Operations & Deployment",
-          "description": "Validated the robot in real world conditions and under harsh winds with the drone's pilot in front of stakeholders. Handed-over the system to the research team through documentation and training sessions to ensure good knowledge transfer and support of future projects. ",
+          "description": "Validated the robot in real world conditions and under harsh winds with the drone's pilot in front of stakeholders. Handed the system over to the research team through documentation and training sessions to ensure good knowledge transfer and support of future projects. ",
           "tags": [
             "System Deployment",
             "Stakeholder Engagement",
@@ -139,8 +135,7 @@
             "ROS 2",
             "Hardware Integration",
             "Signal Processing",
-            "PID Control",
-            "Locomotion",
+            "Control",
             "Quality Control"
           ],
           "media": [
@@ -174,17 +169,18 @@
       "companyLogo": "https://drive.google.com/open?id=1Px_D1FDxwUtwCmtKL7M_BEN9y-hsvKJX&usp=drive_copy",
       "companyLogoDark": "https://drive.google.com/open?id=1Px_D1FDxwUtwCmtKL7M_BEN9y-hsvKJX&usp=drive_copy",
       "year": "2024",
-      "description": "Training of a Reinforcement-Learning locomotion controller for a 12 DOF multimodal drone, delivering energy-aware autonomous navigation over rough terrain.",
+      "description": "Training of a Reinforcement-Learning locomotion controller for a 12 DOF multimodal drone, delivering energy-aware autonomous navigation over complex terrain.",
       "tags": [
         "Reinforcement Learning",
         "ROS",
         "Gazebo",
         "SLAM",
+        "Control",
         "Perception"
       ],
       "detailTitle": "Master's Thesis",
       "detailMeta": "03.2024 - 09.2024",
-      "overview": "For my Master's thesis work, I trained a PPO-based joint-state controller for a 12-DOF M4 robot. The purpose of this research was to autonomous detect bridge-like structure and reduce its cost of transport of the M4 while passing underneath them compared to threshold-based methods.",
+      "overview": "For my Master's thesis work, I trained a PPO-based joint-state controller for a 12-DOF M4 robot. The purpose of this research was to autonomously detect bridge-like structures and reduce the cost of transport of the M4. A simulation environment was also built to support future research and the testing of control pipelines.",
       "technicalDoc": {
           "url": "https://drive.google.com/file/d/1o5QR46i9y-IFg0FKPBC_jDCImJs503Cc/view?usp=sharing",
           "label": "Thesis Report",
@@ -235,7 +231,7 @@
         },
         {
           "title": "RL Training Pipeline",
-          "description": "Built an NVIDIA IsaacLab framework to train the PPO-based control policy with domain randomisation. After a first introduction to RL training and several training attempts of the desired policy, successfully trained a Resnet18-FC model to control the M4 robot in simulation. The model was trained with dual RGBD feed (frontal and rear) as well as joint states inputs, ultimately allowing the M4 to autonomously detect bridge-like structures and adapt its locomotion strategy while maintaining stability and energy efficiency.",
+          "description": "Built an NVIDIA's IsaacLab framework to train the PPO-based control policy with domain randomisation. After a first introduction to RL training and several training attempts of the desired policy, successfully trained a Resnet18-FC model to control the M4 robot in simulation. The model was trained with dual RGBD feed (frontal and rear) as well as joint states inputs, ultimately allowing the M4 to autonomously detect bridge-like structures and adapt its locomotion strategy while maintaining stability and energy efficiency.",
           "tags": [
             "Reinforcement Learning",
             "IsaacLab",
@@ -259,7 +255,8 @@
           "title": "Results",
           "description": "Exported the Resnet18-FC model into Gazebo for performance comparison. Validated the controller's performance in Gazebo and showed that while standard methods perform better with little contextual information, RL shows promissing results for more complex systems leveraging added sensor fusion.",
           "tags": [
-            "Sim-to-Sim"
+            "Sim-to-Sim",
+            "Documentation"
           ],
           "media": [
             {
@@ -300,16 +297,15 @@
       ],
       "detailTitle": "Electrical Engineer Intern",
       "detailMeta": "09.2023 – 02.2024",
-      "overview": "For my Master's internship, I joined the R&D team at ANYbotics. Working on the ANYmal-D robot testing equipment, I was tasked with making the hardware testing equipment of the robot more unified. During that time, I developed a unified testing PCB, integrating the measurement circuits necessary to all of the current and future tester PCBs of the ANYmal robots. This board was meant to be used as a robust plug-&-play system for future testing applications.",
+      "overview": "For my Master's internship, I joined the R&D team at ANYbotics. Working on the ANYmal-D robot, I was tasked with unifying its hardware testing equipment. During that time, I developed a plug-&-play tester PCB, integrating the electrical measurement circuits common to all of the current and future tester PCBs of the ANYmal robots.",
       "subprojects": [
         {
           "title": "Tester PCB Design",
-          "description": "Unifyied hardware testing procotols and automated their generation. Reviewied the company's hardware testing methods and needs to define a new hardware testing architecture: a common 6-layer 'Universal Tester' to be used as the standard for voltage and current measurement to all future testers + dedicated interface boards connecting the measurements channels of the Universal Tester to the different boards under test. Designed & tested the Universal Tester PCB. Updated the ANYmal-D PDB tester to match the new testing architecture.",
+          "description": "Unifyied hardware testing procotols and automated their generation. Conducted a comprehensive review of the company’s hardware-testing practices and specified a new architecture consisting of: (i) a standardized six-layer “Universal Tester” that supplies voltage and current measurements for all future test systems, and (ii) dedicated interface boards that connect the Universal Tester’s measurement channels to each board under test. Designed & tested the Universal Tester PCB. Updated the ANYmal-D PDB tester to match the new testing architecture.",
           "tags": [
             "PCB Design",
             "Fast Prototyping",
             "Lab Equipment",
-            "KiCad",
             "ADC / DAC",
             "Power Distribution",
             "Voltage Protection",
@@ -357,10 +353,10 @@
       "description": "Design of the avionics systems of Xplore's first drone for the ERC 2023 competition. Providing support to the newly appointed management team.",
       "tags": [
         "Avionics",
-        "Embedded C",
+        "Embedded C/C++",
         "Telemetry",
-        "Safety Protocols",
-        "Management Advisor"
+        "Control",
+        "Advisor & Mentor"
       ],
       "detailTitle": "UAV Avionics Engineer",
       "detailMeta": "09.2022 – 09.2023",
@@ -374,11 +370,11 @@
         "label": "Technical Report",
         "type": "gdrive"
       },
-      "overview": "EPFL Xplore is a student-led project that I co-founded in 2020 to give students hands-on experience in a number of disciplines such as systems engineering, robotics, mechanical engineering, life sciences and optics.<br>In 2023, I stepped away from management functions to let the new generation of students take the lead of the project and stayed as advisor in the management team. I took an R&D project role as UAV Avionics Engineer for the newly lanched drone subproject and was in charge of the design, manufacturing, testing and integration of the avionics board of the drone. My task also included programming the flight controller, the sensor data acquisition, the telemetry and the safety protocols on the board. Finally, I became the operator of the drone at the ERC 2023 competition.",
+      "overview": "EPFL Xplore is a student-led project that I co-founded in 2020 to give students hands-on experience in a number of disciplines such as systems engineering, robotics, mechanical engineering, life sciences and optics.<br>In 2023, I stepped away from management functions to allow the new generation of students to take the lead of the project and stayed as advisor in the management team. I took an R&D project role as UAV Avionics Engineer for the newly-lanched drone project and was in charge of the design, manufacturing, testing and integration of the avionics board of the system. My task also included programming the flight controller, the sensor data acquisition, the telemetry and the safety protocols on the board. Finally, I became the operator of the drone at the ERC 2023 competition.",
       "subprojects": [
         {
           "title": "ERC 2023 Competition",
-          "description": "In 2023, the team placed 3rd out of 54 teams at the ERC competition in Poland. It was also awarded the price of Best Maintenance for technical excellence in operating autonomously on a control panel thanks to the rover's robotic arm. The team was also recognized for having developed its drone in house, down to its electronics boards and the software running on them.",
+          "description": "In 2023, the team placed 3rd out of 54 teams at the ERC competition in Poland. It was also awarded the Best Maintenance Award for technical excellence in autonomously operating a control panel with the rover's robotic arm. The team was also recognized for being the only project to have developed its drone in-house, down to its electronics and software.",
           "tags": [
             "3rd Place",
             "Best Manipulation Award"
@@ -506,7 +502,7 @@
           "label": "Technical Report",
           "type": "gdrive"
       },
-      "overview": "As President of EPFL Xplore, I served both internal and external roles. Internally, I supervised the Technical Leadership team to ensure that the project met the yearly objectives set for technical performances. I also took HR responsibilities to heart, from recruiting new students to ensuring that each member was heard and included in the decision making process in the project. Externally, I defined the project's educational & research plan, led its outreach & communication strategy through events and social media presence and expanded external partnerships.",
+      "overview": "As President of EPFL Xplore, I served both internal and external roles. Internally, I supervised the Technical Leadership team to ensure that the project met the yearly objectives set for technical performance. I also took HR responsibilities to heart, from recruiting new students to ensuring that each member was heard and included in the decision-making process in the project. Externally, I defined the project's educational & research plan, led its outreach & communication strategy through events and social-media presence and expanded external partnerships.",
       "subprojects": [
         {
           "title": "ERC 2022 Competition",
@@ -591,7 +587,7 @@
         },
         {
           "title": "Events & Outreach",
-          "description": "Organized and participated in events to promote the project and its activities. This included: Unveiling of the Astra rover at the Rolex Learning Center, Swatch x Omega private event for the unveiling of their Moon Swatch collection, collaboration with NCCR Robotics for the Swiss Robotics Days, participation in the EPFL Alumni Garden Party, EPFL Open Days and EPFL Discovery Learning Lab Opening Ceremony. Also built a Communications team to focus on audience engagement with new consistent content types (Instagram Reels campaigns, Youtube and Instagram live streaming of events, team introductions posts, sponsoring contents).",
+          "description": "Organized events and attended external ones to promote the project and its activities. These included: Unveiling of the Astra rover at the Rolex Learning Center, Swatch x Omega private event for the unveiling of their Moon Swatch collection, collaboration with NCCR Robotics for the Swiss Robotics Days, participation in the EPFL Alumni Garden Party, EPFL Open Days and EPFL Discovery Learning Lab Opening Ceremony. Also built the Communications team to focus on audience engagement with new consistent content types (Instagram Reels campaigns, Youtube and Instagram live streaming of events, team introductions posts, sponsoring contents).",
           "tags": [
             "Public Relations",
             "Partnerships",
@@ -670,7 +666,7 @@
           "label": "Technical Report",
           "type": "gdrive"
       },
-      "overview": "In 2020, along with 3 co-founders, we realized that the EPFL ecosystem was missing hands-on practical projects to teach us how to build systems from the ground up and how to manage them. EPFL Xplore was founded with that very intent, to build an initiative allowing students to learn and combine sciences, engineering, and management in a multidisciplinary environment. As students passionate by space and robotics, we dediced to found the first robotics project at EPFL. One year later, the team secured an early podium finish among 58 teams at the European Rover Challenge (ERC) 2021 and received excellence awards for both Science and Probing missions.",
+      "overview": "In 2020, along with 3 co-founders, we realized that the EPFL ecosystem was missing hands-on practical projects to teach us how to build systems from the ground up and how to manage them. EPFL Xplore was founded with that very intent, to build an initiative allowing students to learn and combine sciences, engineering, and management in a multidisciplinary environment. As students passionate about space and robotics, we dediced to found the first robotics project at EPFL. One year later, the team secured an early podium finish among 58 teams at the European Rover Challenge (ERC) 2021 and received excellence awards for both Science and Probing missions.",
       "subprojects": [
         {
           "title": "Systems Engineering",
@@ -692,7 +688,7 @@
         },
         {
           "title": "Vice-President & Project Manager",
-          "description": "As Vice-President and Project Manager, I directed multidiscipline technical teams, defined project milestones following NASA's Systems Engineering V-Model, and supervised the testing campaigns. I allocated both financial and engineering resources, oversaw risk and supply-chain management and convened technical reviews with experts from NASA, ESA, the industry and partners.",
+          "description": "As Vice-President and Project Manager, I led multidiscipline technical teams, defined project milestones following NASA's Systems Engineering V-Model, and supervised the testing campaigns. I allocated both financial and engineering resources, oversaw risk and supply-chain management and convened technical reviews with experts from NASA, ESA, the industry and partners.",
           "tags": [
             "Timeline Management",
             "Risk Management",
@@ -757,7 +753,7 @@
         },
         {
           "title": "ERC 2021 Competition",
-          "description": "After only one year of development, we placed 3rd among 58 teams at ERC 2021. The team also received two excellence awards: Best Science mission and execution for the quality of its scientific report, the innovative design of its science bay, the sample collection strategy, and Best Probing for successfully driving a scientific probe into a rocky terrain.",
+          "description": "After only one year of development, we placed 3rd among 58 teams at ERC 2021. The team also received two excellence awards: (i) Best Science Mission Award for the quality of its scientific report and the innovative design of its science bay and sample collection mechanism, and (ii) Best Probing Award for successfully driving a scientific probe into a rocky terrain.",
           "tags": [
             "3rd Place",
             "Best Science Award",
@@ -827,10 +823,10 @@
       "year": "2019-2021",
       "description": "Real-time data acquisition, telemetry and flight-state sequencing for an hybrid rocket.",
       "tags": [
+        "Embedded C/C++",
         "Avionics",
         "Telemetry",
-        "Finite-State Machine",
-        "Embedded C"
+        "Finite-State Machine"
       ],
       "detailTitle": "Avionics Software Engineer",
       "detailMeta": "04.2019 - 09.2021",
@@ -844,11 +840,11 @@
         "label": "Bella Lui I",
         "type": "youtube"
       },
-      "overview": "Within the Avionics Team, I was in charge of the avionics embedded systems software, including flight sensors data acquisition, finite state machine design and telemetry implementation. Due to covid restrictions the team was not able to go to the intended Spaceport America Cup in 2021 but went on to win the Euroc 2022 competition one year later.",
+      "overview": "Within the Avionics Team, I was in charge of the avionics' embedded systems software, including the flight sensors data acquisition, the finite state machine design and the implementation of telemetry protocols. Due to Covid restrictions, the team was not able to attend the Euroc competition in 2021 but went on to win the 2022 edition one year later.",
       "subprojects": [
         {
           "title": "Avionics Sensors",
-          "description": "Acquired onboard sensing data from IMU, barometers and RTK GPS on an STM32H7 board to estimate the rocket's states (speed, altitude, pressure, temperature). Delivered UHF telemetry link between the Ground Segment and Propulsion Systems and designed the kalman-based FSM triggering stage separation and recovery events.",
+          "description": "Acquired onboard sensing data from IMU, barometers and GPS on an STM32H7 board to estimate the rocket's states (speed, altitude, pressure, temperature). Defined telemetry procotols between the Ground Segment and Propulsion Systems and designed the kalman-based FSM triggering stage separation and recovery events.",
           "tags": [
             "C",
             "C++",
